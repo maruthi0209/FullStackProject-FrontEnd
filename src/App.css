@@ -1,42 +1,328 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+:root{
+  --primary-color : #0E185F;
+  --secondary-color : #FDFAF6;
+  --tertiary-color : #2FA4FF;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* CSS code for Header section starts here*/
+
+.header{
+  width: 100%;
+  height: 5%;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#logo{
+  width: 7%;
+}
+#logo>img{
+  display: block;
+  width: 100%;
+}
+
+.MenuNavBar{
+  display: none;
+}
+
+#searchBarDiv{
+  width: 40%;
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+}
+#searchBar, #searchButton {
+  height: 40px;
+  border : none;
+}
+#searchBar {
+  width: 90%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-right: none;
+  padding-left: 15px;
+  border-color: black;
+}
+#searchBar::placeholder {
   text-align: center;
 }
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+#searchButton {
+  width: 80px;
+  background-color: white;
+  border-left: none;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+#searchButton svg {
+  width: 18px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+#navbar {
+  width: 25%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+#navbar svg {
+  width: 15px;
+}
+.navlinks {
+  font-size: 1rem;
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+/* CSS code for Header section ends here*/
+
+/* Media Queries for width from 768px to 1024px */
+@media screen and (min-width : 768px ) and (max-width : 1024px) {
+  #searchBar, #searchButton {
+    height: 30px;
   }
-  to {
-    transform: rotate(360deg);
+  #searchBar::placeholder {
+    font-size: 0.75rem;
+  }
+  #searchButton svg {
+    width: 13px;
+  }
+  #navbar svg {
+    width: 12px;
+  }
+  .navlinks{
+    font-size: 0.75rem;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* Media Queries for width from 425px to 768px */
+@media screen and (min-width : 425px ) and (max-width : 767px) {
+  .header{
+    height: 60px;
+  }
+  #logo{
+    width: 60px;
+  }
+  #searchBarDiv{
+    justify-content: space-between;
+  }
+  #searchBar, #searchButton {
+    height: 20px;
+  }
+  #searchBar::placeholder {
+    font-size: 0.4rem;
+    text-align: center;
+  }
+  #searchButton svg {
+    width: 10px;
+  }
+  #navbar svg {
+    width: 7px;
+  }
+  .navlinks{
+    font-size: 0.5rem;
   }
 }
 
-.card {
-  padding: 2em;
+/* Media Queries for width from 320px to 424px */
+@media screen and (min-width : 320px) and (width <= 424px) {
+
+  .header{
+    height: 60px;
+  }
+  #logo{
+    width: 60px;
+  }
+  #searchBarDiv{
+    width: 25%;;
+  }
+  #menusearchButton {
+    width: 50%;
+  }
+  #menusearchButton, #MenuNavBarButton {
+    background-color: var(--primary-color);
+    border: none;
+  }
+  #searchBarContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100vw;
+    position: absolute;
+    top: 50px;
+    left: -162%;
+  }
+  #contentsearchBar, #contentsearchButton {
+    height: 40px;
+    border : none;
+  }
+  #contentsearchBar {
+    width: 90%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-right: none;
+    padding-left: 15px;
+    border-color: black;
+  }
+  #contentsearchBar::placeholder {
+    text-align: center;
+  }
+  #contentsearchButton {
+    width: 80px;
+    background-color: white;
+    border-left: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  /* #searchBar, #searchButton {
+    height: 20px;
+  }
+  #searchBar::placeholder {
+    font-size: 0.4rem;
+    text-align: center;
+  }
+  #searchButton svg {
+    width: 10px;
+  } */
+  #navbar{
+    display: none;
+  }
+  #MenuNavBarLabel{
+    display: block;
+    width: 10%;
+  }
+  #MenuNavBarButton{
+    width: 100%;
+    height: 30px;
+  }
+  #MenuNavBarLabel svg, #menusearchButton svg, #contentsearchButton svg {
+    width: 25px;
+  }
+  #MenuNavBarContents{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    background-color: var(--tertiary-color);
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    top: 60px;
+    right: 0px;
+  }
+  .menunavlinks{
+    font-size: 0.5rem;
+    text-decoration: none;
+    color: var(--secondary-color);
+  }
+  #menufavorites svg{
+    width: 15px;
+  }
 }
 
-.read-the-docs {
-  color: #888;
+/* Media Queries for width upto 320px */
+@media screen and (max-width : 319px) {
+  .header{
+    height: 60px;
+  }
+  #logo{
+    width: 60px;
+  }
+  #searchBarDiv{
+    width: 25%;
+  }
+  #menusearchButton {
+    width: 50%;
+  }
+  #menusearchButton, #MenuNavBarButton {
+    background-color: var(--primary-color);
+    border: none;
+  }
+  #searchBarContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    width: 100vw;
+    position: absolute;
+    top: 50px;
+    left: -182%;
+  }
+  #contentsearchBar, #contentsearchButton {
+    height: 40px;
+    border : none;
+  }
+  #contentsearchBar {
+    width: 90%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-right: none;
+    padding-left: 15px;
+    border-color: black;
+  }
+  #contentsearchBar::placeholder {
+    text-align: center;
+  }
+  #contentsearchButton {
+    width: 80px;
+    background-color: white;
+    border-left: none;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  /* #searchBar, #searchButton {
+    height: 20px;
+  }
+  #searchBar::placeholder {
+    font-size: 0.4rem;
+    text-align: center;
+  }
+  #searchButton svg {
+    width: 10px;
+  } */
+  #navbar{
+    display: none;
+  }
+  #MenuNavBarLabel {
+    display: block;
+    width: 30px;
+  }
+  #MenuNavBarButton{
+    width: 100%;
+    height: 30px;
+    background-color: var(--primary-color);
+    border: none;
+  }
+  #MenuNavBarLabel svg, #contentsearchButton{
+    width: 25px;
+  }
+  #MenuNavBarContents{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    background-color: var(--tertiary-color);
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    top: 60px;
+    right: 0px;
+  }
+  .menunavlinks{
+    font-size: 0.5rem;
+    text-decoration: none;
+    color: var(--secondary-color);
+  }
+  #menufavorites svg{
+    width: 15px;
+  }
 }
