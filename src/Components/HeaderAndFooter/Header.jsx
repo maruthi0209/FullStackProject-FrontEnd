@@ -100,7 +100,7 @@ export default function Header() {
 
     return (
         <>
-        <div className="header">
+        <div className="header space-mono-regular">
             <Logo />
             <SearchBar />
             {/* <MenuNavBarCheckbox /> */}

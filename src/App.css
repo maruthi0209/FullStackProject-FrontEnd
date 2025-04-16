@@ -10,6 +10,41 @@
   box-sizing: border-box;
 }
 
+/* Google Font starts here */
+.caveat-regular {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+.caveat-bold {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+.space-mono-regular {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+.space-mono-bold {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+.space-mono-regular-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+.space-mono-bold-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: italic;
+}
+/* Google Font ends here */
+
 /* CSS code for Header section starts here*/
 
 .header{
@@ -64,6 +99,10 @@
 #searchButton svg {
   width: 18px;
 }
+#searchButton:hover{
+  cursor: pointer;
+  border: 1px solid black;
+}
 
 #navbar {
   width: 25%;
@@ -74,13 +113,45 @@
 #navbar svg {
   width: 15px;
 }
-.navlinks {
-  font-size: 1rem;
+.navlinks , #sociallinks a{
+  font-size: 0.8rem;
   color: var(--secondary-color);
   text-decoration: none;
 }
 
 /* CSS code for Header section ends here*/
+
+/* CSS code for Footer section starts here*/
+
+.footer {
+  width: 100%;
+  background-color: var(--primary-color);
+  position: absolute;
+  bottom: 0%;
+  font-size: 0.8rem;
+}
+#aboutme, #socials, #copyright {
+  width: 100%;
+  color: var(--secondary-color);
+  padding: 10px 30px;
+  text-align: center;
+  text-align-last: center;
+}
+#socials{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+#sociallinks{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px;
+}
+
+/* CSS code for Footer section ends here*/
 
 /* Media Queries for width from 768px to 1024px */
 @media screen and (min-width : 768px ) and (max-width : 1024px) {
@@ -94,10 +165,11 @@
     width: 13px;
   }
   #navbar svg {
-    width: 12px;
+    width: 10px;
   }
-  .navlinks{
-    font-size: 0.75rem;
+  .navlinks,  #aboutme, #socials, #sociallinks, #sociallinks a, #copyright{
+    padding: 5px;
+    font-size: 0.5rem;
   }
 }
 
@@ -119,14 +191,19 @@
     font-size: 0.4rem;
     text-align: center;
   }
+  #searchButton:hover{
+    cursor: pointer;
+    border: 1px solid black;
+  }
   #searchButton svg {
     width: 10px;
   }
   #navbar svg {
     width: 7px;
   }
-  .navlinks{
-    font-size: 0.5rem;
+  .navlinks, #aboutme, #socials, #sociallinks, #sociallinks a, #copyright{
+    padding: 5px;
+    font-size: 0.3rem;
   }
 }
 
@@ -175,22 +252,16 @@
     text-align: center;
   }
   #contentsearchButton {
-    width: 80px;
+    width: 100px;
     background-color: white;
     border-left: none;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
   }
-  /* #searchBar, #searchButton {
-    height: 20px;
+  #contentsearchButton:hover{
+    cursor: pointer;
+    border: 1px solid black;
   }
-  #searchBar::placeholder {
-    font-size: 0.4rem;
-    text-align: center;
-  }
-  #searchButton svg {
-    width: 10px;
-  } */
   #navbar{
     display: none;
   }
@@ -218,13 +289,17 @@
     top: 60px;
     right: 0px;
   }
-  .menunavlinks{
-    font-size: 0.5rem;
+  .menunavlinks, #aboutme, #socials, #sociallinks, #copyright{
+    font-size: 0.3rem;
     text-decoration: none;
     color: var(--secondary-color);
   }
   #menufavorites svg{
     width: 15px;
+  }
+  #sociallinks, #sociallinks a{
+    padding: 2px;
+    font-size: 0.3rem;
   }
 }
 
@@ -254,7 +329,7 @@
     width: 100vw;
     position: absolute;
     top: 50px;
-    left: -182%;
+    left: -180%;
   }
   #contentsearchBar, #contentsearchButton {
     height: 40px;
@@ -272,22 +347,16 @@
     text-align: center;
   }
   #contentsearchButton {
-    width: 80px;
+    width: 100px;
     background-color: white;
     border-left: none;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
   }
-  /* #searchBar, #searchButton {
-    height: 20px;
+  #contentsearchButton:hover{
+    cursor: pointer;
+    border: 1px solid black;
   }
-  #searchBar::placeholder {
-    font-size: 0.4rem;
-    text-align: center;
-  }
-  #searchButton svg {
-    width: 10px;
-  } */
   #navbar{
     display: none;
   }
@@ -317,12 +386,17 @@
     top: 60px;
     right: 0px;
   }
-  .menunavlinks{
-    font-size: 0.5rem;
+  .menunavlinks, #aboutme, #socials, #sociallinks, #copyright{
+    font-size: 0.3rem;
     text-decoration: none;
     color: var(--secondary-color);
   }
   #menufavorites svg{
     width: 15px;
+  }
+  #sociallinks, #sociallinks a{
+    padding: 2px;
+    font-size: 0.3rem;
+    flex-direction: column;
   }
 }
