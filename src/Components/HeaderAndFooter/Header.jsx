@@ -15,11 +15,10 @@ function Logo() {
 function SearchBar() {
     const [matches, setMatches] = useState(window.matchMedia("(max-width: 424px)").matches)
     const [menusearchbuttonclicked, setmenusearchbuttonclicked] = useState(false);
+    const [ismobile, setIsMobile] = useState(false)
     
       useEffect(() => { // https://stackoverflow.com/questions/54491645/media-query-syntax-for-reactjs
-        window
-        .matchMedia("(max-width: 424px)")
-        .addEventListener('change', e => {setMatches( e.matches )});
+        window.matchMedia("(max-width: 424px)").addEventListener('change', e => {setMatches( e.matches )});
       }, []);
 
     return (
@@ -31,19 +30,17 @@ function SearchBar() {
             </>   
         }
         {
-            menusearchbuttonclicked && <div id="searchBarContent">
+            (matches && menusearchbuttonclicked) && <div id="searchBarContent">
                 <input type="text" name="searchBar" id="contentsearchBar" placeholder="Search Movies, Actors or Genre" />
                 <button type="button" id="contentsearchButton"><SearchOutline color={'#000000'} /></button>
             </div>
         }
-        {
-            
-            !matches &&// (!matches || menusearchbuttonclicked) &&
+        { 
+            (!matches || ((!matches && menusearchbuttonclicked))) &&// (!matches || menusearchbuttonclicked) &&
             <>
                 <input type="text" name="searchBar" id="searchBar" placeholder="Search Movies, Actors or Genre" />
                 <button type="button" id="searchButton"><SearchOutline color={'#000000'} /></button>
-            </>
-            
+            </> 
         }
         </div>
     )
