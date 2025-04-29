@@ -19,10 +19,10 @@ function Socials() {
                 Follow me on socials
             </h3>
             <div className="socialicons" id="sociallinks">
-                <a href="https://www.linkedin.com/in/sethu-maruthi-c-b90014181/">LinkedIn</a>
-                <a href="https://github.com/maruthi0209">GitHub</a>
-                <a href="https://www.facebook.com/sethu.maruthi">Facebook</a>
-                <a href="https://www.instagram.com/sethumaruthi">Instagram</a>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/sethu-maruthi-c-b90014181/">LinkedIn</a>
+                <a target="_blank" rel="noopener noreferrer" href="https://github.com/maruthi0209">GitHub</a>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/sethu.maruthi">Facebook</a>
+                <a target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/sethumaruthi">Instagram</a>
             </div>
         </div>
         </>

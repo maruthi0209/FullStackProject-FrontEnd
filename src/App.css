@@ -121,12 +121,18 @@
 
 /* CSS code for Header section ends here*/
 
+/* CSS code for hot trending topic section starts here */
+#hotTrending iframe{
+  height: 540px;
+}
+/* CSS code for hot trending topic section ends here */
+
 /* CSS code for Footer section starts here*/
 
 .footer {
   width: 100%;
   background-color: var(--primary-color);
-  position: absolute;
+  position: relative;
   bottom: 0%;
   font-size: 0.8rem;
 }
@@ -148,7 +154,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 15px;
+  padding: 10px;
 }
 
 /* CSS code for Footer section ends here*/
@@ -170,6 +176,10 @@
   .navlinks,  #aboutme, #socials, #sociallinks, #sociallinks a, #copyright{
     padding: 5px;
     font-size: 0.5rem;
+  }
+
+  #hotTrending iframe{
+    height: 360px;
   }
 }
 
@@ -204,6 +214,10 @@
   .navlinks, #aboutme, #socials, #sociallinks, #sociallinks a, #copyright{
     padding: 5px;
     font-size: 0.3rem;
+  }
+
+  #hotTrending iframe{
+    height: 270px;
   }
 }
 
@@ -300,6 +314,10 @@
   #sociallinks, #sociallinks a{
     padding: 2px;
     font-size: 0.3rem;
+  }
+
+  #hotTrending iframe{
+    height: 180px;
   }
 }
 
@@ -398,5 +416,9 @@
     padding: 2px;
     font-size: 0.3rem;
     flex-direction: column;
+  }
+
+  #hotTrending iframe{
+    height: 180px;
   }
 }
