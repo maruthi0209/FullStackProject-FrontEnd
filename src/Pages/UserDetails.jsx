@@ -1,0 +1,7 @@
+function UserDetails() {
+    return (
+        <>
+        LoginPage
+        </>
+    )
+}

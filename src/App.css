@@ -113,7 +113,7 @@
 #navbar svg {
   width: 15px;
 }
-.navlinks , #sociallinks a{
+.navlinks , #sociallinks a, .menunavlinks{
   font-size: 0.8rem;
   color: var(--secondary-color);
   text-decoration: none;
@@ -294,7 +294,7 @@
     text-decoration: none;
     color: var(--secondary-color);
   }
-  #menufavorites svg{
+  #menucategories svg{
     width: 15px;
   }
   #sociallinks, #sociallinks a{
@@ -391,7 +391,7 @@
     text-decoration: none;
     color: var(--secondary-color);
   }
-  #menufavorites svg{
+  #menucategories svg{
     width: 15px;
   }
   #sociallinks, #sociallinks a{

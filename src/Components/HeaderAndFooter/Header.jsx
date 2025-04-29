@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react"
 import screenscorelogo from "../../assets/ScreenScore_dark.png"
-import { SearchOutline } from 'react-ionicons'
-import { MenuOutline } from 'react-ionicons'
+import { SearchOutline, MenuOutline, ListOutline } from 'react-ionicons'
+import { Link } from "react-router-dom"
+// import { MenuOutline } from 'react-ionicons'
 import { Heart } from 'react-ionicons'
 
 function Logo() {
@@ -64,8 +65,8 @@ function MenuNavBarLabel() {
         </div>
         {
             labelClicked && <div className="MenuNavBar" id="MenuNavBarContents">
-            <a href="#" className="menunavlinks" id="menufavorites"><Heart color={'#FFFFFF'}/>      Favorites</a>
-            <a href="#" className="menunavlinks" id="menulogin">Login</a>
+            <a href="#" className="menunavlinks" id="menufavorites"><ListOutline color={'#FFFFFFF'}/>      Categories</a>
+            <Link to="/login" className="menunavlinks" id="menulogin">Login</Link>
         </div>
         }
         
@@ -87,8 +88,8 @@ function MenuNavBarLabel() {
 function NavBar() {
     return (
         <div id="navbar">
-            <a href="#" className="navlinks" id="favorites"><Heart color={'#FFFFFF'}/>      Favorites</a>
-            <a href="#" className="navlinks" id="login">Login</a>
+            <Link href="/categories" className="menunavlinks" id="menucategories"><ListOutline color={'#FFFFF'}/>      Categories</Link>
+            <Link to="/login" className="menunavlinks" id="menulogin">Login</Link>
         </div>
     )
 }
