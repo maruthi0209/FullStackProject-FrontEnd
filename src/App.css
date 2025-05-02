@@ -121,10 +121,18 @@
 
 /* CSS code for Header section ends here*/
 
-/* CSS code for hot trending topic section starts here */
+/* CSS code for others starts here */
+.app {
+  background-image: url("./assets/peakpx.jpg");
+  background-attachment: fixed;
+}
+.innerCard {
+  max-width: 219px;
+}
 #hotTrending iframe{
   height: 540px;
 }
+
 /* CSS code for hot trending topic section ends here */
 
 /* CSS code for Footer section starts here*/

@@ -1,8 +1,5 @@
 import { useState, useEffect } from "react"
-import Card from 'react-bootstrap/Card';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import DivCard from "../Cards/DivCard";
 
 
 export default function HighestGrossing() {
@@ -27,37 +24,7 @@ export default function HighestGrossing() {
 
     return (
         <>
-            <div className="highestGrossing w-75 my-5 m-auto " id="highestGrossing">
-                <div className="space-mono-bold-italic" id="highestGrossingHeading">
-                    <h3>Highest Grossing</h3>
-                </div>
-                <div className="gridContainer w-100 my-3" id="highestGrossingContainer">
-                    <Container fluid>
-                        <Row>
-                        {
-                        highestgrossingList.map((element, index) => {
-                            return (
-                                <Col xs={3} key={index}>
-                                <Card key={index}>
-                                    <Card.Img src={element.moviePoster} />
-                                    <Card.Body>
-                                        {/* <Card.Title>{element.movieName}</Card.Title> */}
-                                        <Card.Text>
-                                        {element.movieName} {element.movieReleaseYear}
-                                        Directed by : {element.movieDirector}
-                                        Box Office : {element.movieCollectionInMillions} million
-                                        </Card.Text>
-                                        {/* <Button variant="primary">Go somewhere</Button> */}
-                                    </Card.Body>
-                                </Card>
-                                </Col>
-                            )
-                        })
-                    }
-                        </Row>
-                    </Container>
-                </div>
-            </div>
+            <DivCard title={"Highest Grossing"} list={highestgrossingList} idname = {"highestGrossing"}/>
         </>
     )
 }
