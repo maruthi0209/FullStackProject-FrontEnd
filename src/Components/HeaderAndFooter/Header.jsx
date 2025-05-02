@@ -8,7 +8,7 @@ import { Heart } from 'react-ionicons'
 function Logo() {
     return (
         <div className="logo" id="logo">
-            <img src={screenscorelogo} alt="ScreenScore Logo" />
+            <Link to="/" className="logo" id="logoLink"><img src={screenscorelogo} alt="ScreenScore Logo" /></Link> 
         </div>
     ) 
 }

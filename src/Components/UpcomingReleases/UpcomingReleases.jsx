@@ -1,41 +1,40 @@
-import { useState, useEffect } from "react"
+import { useEffect, useState } from "react"
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+export default function UpcomingReleases() {
 
-export default function HighestGrossing() {
-
-    let [highestgrossingList, setHighestGrossing] = useState([])
+    let [upcomingReleases, setUpcomingReleases] = useState([])
 
     useEffect(() => {
-        async function getHighestGrossing() {
+        async function getUpcomingReleases() {
             try {
-                const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/movies/highestgrossing")
+                const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/movies/upcoming")
                 if (!response.ok) {
-                    throw new Error("Error occured " + response.status + response.statusText)
+                    throw new Error("Some error occured" + response.status )
                 }
                 const jsonresponse = await response.json()
-                setHighestGrossing(jsonresponse)
+                setUpcomingReleases(jsonresponse)
             } catch (error) {
                 console.log(error.message)
             }
         }
-        getHighestGrossing()
+        getUpcomingReleases()
     }, [])
-
+    
     return (
         <>
-            <div className="highestGrossing w-75 my-5 m-auto " id="highestGrossing">
-                <div className="space-mono-bold-italic" id="highestGrossingHeading">
-                    <h3>Highest Grossing</h3>
+            <div className="upcoming w-75 my-5 m-auto " id="upcoming">
+                <div className="space-mono-bold-italic" id="upcoming">
+                    <h3>Upcoming Releases</h3>
                 </div>
-                <div className="gridContainer w-100 my-3" id="highestGrossingContainer">
+                <div className="gridContainer w-100 my-3" id="upcomingReleasesContainer">
                     <Container fluid>
                         <Row>
                         {
-                        highestgrossingList.map((element, index) => {
+                        upcomingReleases.map((element, index) => {
                             return (
                                 <Col xs={3} key={index}>
                                 <Card key={index}>
@@ -43,9 +42,9 @@ export default function HighestGrossing() {
                                     <Card.Body>
                                         {/* <Card.Title>{element.movieName}</Card.Title> */}
                                         <Card.Text>
-                                        {element.movieName} {element.movieReleaseYear}
-                                        Directed by : {element.movieDirector}
-                                        Box Office : {element.movieCollectionInMillions} million
+                                        {element.movieName} {element.movieReleaseYear}<br />
+                                        Directed by : {element.movieDirector} <br />
+                                        Movie Studio : {element.movieStudio}
                                         </Card.Text>
                                         {/* <Button variant="primary">Go somewhere</Button> */}
                                     </Card.Body>

@@ -59,7 +59,7 @@
 #logo{
   width: 7%;
 }
-#logo>img{
+#logoLink>img{
   display: block;
   width: 100%;
 }

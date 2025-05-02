@@ -23,7 +23,7 @@ export default function HotTrending() {
     }, [])
 
     return (
-        <div className='hotTrending w-75 m-auto' id='hotTrending'>
+        <div className='hotTrending w-75 m-auto my-3' id='hotTrending'>
             <Carousel fade> 
                 {carouselInfo.map((topic, index) => {
                     return (
