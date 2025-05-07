@@ -6,7 +6,7 @@ import HighestGrossing from "../Components/HighestGrossing/HighestGrossing";
 import TopRated from "../Components/TopRated/TopRated";
 import UpcomingReleases from "../Components/UpcomingReleases/UpcomingReleases";
 
-function HomePage() {
+export default function HomePage() {
     return (
         <>
         <div className='app'>
@@ -21,5 +21,3 @@ function HomePage() {
         </>
     )
 }
-
-export default HomePage
