@@ -124,6 +124,11 @@
 /* CSS code for others starts here */
 .app {
   background-image: url("./assets/peakpx.jpg");
+}
+.categories {
+  background-image: url("./assets/categories-background.jpg");
+}
+.app, .categories {
   background-attachment: fixed;
 }
 .innerCard {

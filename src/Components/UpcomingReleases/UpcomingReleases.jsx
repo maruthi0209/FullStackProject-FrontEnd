@@ -27,7 +27,7 @@ export default function UpcomingReleases() {
     
     return (
         <>
-            <DivCard title={"UpComing Releases"} list={upcomingReleases} idname = {"upcomingReleases"}  />
+            <DivCard title={"Upcoming Releases"} list={upcomingReleases} idname = {"upcomingReleases"}  />
         </>
     )
 }

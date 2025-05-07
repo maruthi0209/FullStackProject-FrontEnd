@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import screenscorelogo from "../../assets/ScreenScore_dark.png"
-import { SearchOutline, MenuOutline, ListOutline } from 'react-ionicons'
+import { SearchOutline, MenuOutline, ListOutline, HomeOutline } from 'react-ionicons'
 import { Link } from "react-router-dom"
 // import { MenuOutline } from 'react-ionicons'
 import { Heart } from 'react-ionicons'
@@ -47,14 +47,6 @@ function SearchBar() {
     )
 }
 
-// function MenuNavBarCheckbox() {
-//     return(
-//         <div className="MenuNavBar" id="MenuNavBarCheckbox">
-//             <input type="checkbox" name="checkbox" id="checkbox" />
-//         </div>
-//     )
-// }
-
 function MenuNavBarLabel() {
     const [labelClicked, setlabelClicked] = useState(false); // https://react.dev/reference/react/useState
     return(
@@ -74,21 +66,12 @@ function MenuNavBarLabel() {
     )
 }
 
-// function MenuNavBarContents(){
-//     return(
-//         <>
-//              {this.labelClicked && <div className="MenuNavBar" id="MenuNavBarContents">
-//                 <a href="#" className="menunavlinks" id="menufavorites"><Heart color={'#FFFFFF'}/>      Favorites</a>
-//                 <a href="#" className="menunavlinks" id="menulogin">Login</a>
-//             </div>}
-//         </>
-//     )
-// }
-
 function NavBar() {
+    // // https://stackoverflow.com/questions/39823681/read-the-current-full-url-with-react
     return (
-        <div id="navbar">
-            <Link href="/categories" className="menunavlinks" id="menucategories"><ListOutline color={'#FFFFF'}/>      Categories</Link>
+        <div id="navbar"> 
+            {(window.location.pathname == "/") && <Link to="/categories" className="menunavlinks" id="menucategories"><ListOutline color={'#FFFFF'}/>Categories</Link>}
+                {(window.location.pathname == "/categories") && <Link to="/" className="menunavlinks" id="menuhome"><HomeOutline color={'#FFFFF'}/>Home</Link>}
             <Link to="/login" className="menunavlinks" id="menulogin">Login</Link>
         </div>
     )
@@ -101,8 +84,6 @@ export default function Header() {
         <div className="header space-mono-regular">
             <Logo />
             <SearchBar />
-            {/* <MenuNavBarCheckbox /> */}
-            {/* <MenuNavBarContents /> */}
             <NavBar />
             <MenuNavBarLabel />
             
