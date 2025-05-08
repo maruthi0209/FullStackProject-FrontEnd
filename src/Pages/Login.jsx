@@ -1,11 +1,13 @@
 import LoginContainer from "../Components/LoginAndSignUp/LoginContainer";
-import SignUpContainer from "../Components/LoginAndSignUp/SignUpContainer";
+import VideoDiv from "../Components/LoginAndSignUp/VideoDiv";
 
 function LoginPage() {
     return (
         <>
+        <VideoDiv />
         {/* <SignUpContainer /> */}
         <LoginContainer />
+
         </>
     )
 }
