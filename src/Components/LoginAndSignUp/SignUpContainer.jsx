@@ -30,8 +30,34 @@ function SignUpContainer() {
 
     }, [])
 
-    function handleSignUp(formData) { 
-        console.log(formData)
+    async function handleSignUp(formData) { 
+        if (validEmail && !userExists && validPassword && valid2Password) {
+            let inputObj = {}
+            inputObj.userName = formData.get("formBasicUsername")
+            inputObj.userEmail = formData.get("formBasicPassword")
+            inputObj.userPassword = formData.get("formBasicPassword")
+            inputObj.userFavorites = []
+            inputObj.userIsAdmin = false
+            
+            try {
+                const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/users/create", {
+                    method : "POST",
+                    headers: {
+                        'Accept': '*',
+                        'Content-Type': 'application/json'
+                    },
+                    body : JSON.stringify(inputObj)
+                });
+                if (!response.ok) {
+                    throw new Error("An error occured " + response.status + response.statusText)
+                }
+                const jsonresponse = await response.json()
+                console.log(jsonresponse)
+            } catch (error) {
+                console.log(error.message)
+            }
+            
+        }
     }
 
     function handleEmailInput(e) {
@@ -55,7 +81,7 @@ function SignUpContainer() {
 
     function handle2PasswordInput(e) {
         let inputPassword = e.target.value;
-        inputPassword === enteredPass ? setValid2Password(true) : setValid2Password(false) 
+        (inputPassword === enteredPass || inputPassword == "") ? setValid2Password(true) : setValid2Password(false) 
     }
 
     return (
@@ -63,9 +89,13 @@ function SignUpContainer() {
         <div className="signUpDiv w-25 m-auto h-50 bg-white p-4 rounded" id="signUpDiv" 
                 style={{position : "relative", top : "150px", textAlign : "center"}}>
             <Form action={handleSignUp}>
+
+                <Form.Group className="mb-3" controlId="formBasicUsername">
+                    <Form.Control type="text" placeholder="Enter your Username" required/>
+                </Form.Group>
+
                 <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Email address*</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" onInput={handleEmailInput}/>
+                    <Form.Control type="email" placeholder="Enter your email" onInput={handleEmailInput} required/>
                     {validEmail == false && <p className="p-2 text-warning">Please enter a valid email format</p>}
                     {userExists && <p className="p-2 text-danger">User already exists!</p>}
                     <Form.Text className="text-muted">
@@ -74,14 +104,12 @@ function SignUpContainer() {
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Password*</Form.Label>
-                    <Form.Control type="password" placeholder="Password" onInput={handlePasswordInput}/>
+                    <Form.Control type="password" placeholder="Enter your Password" onInput={handlePasswordInput} required/>
                     {validPassword==false && <p>Enter a password that is 8 to 16 characters long, contains only lowercase letters, uppercase letters, numbers, no special characters or spaces.</p>}
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasic2Password">
-                    <Form.Label>Confirm Password*</Form.Label>
-                    <Form.Control type="password" placeholder="Password" onInput={handle2PasswordInput}/>
+                    <Form.Control type="password" placeholder="Confirm your Password" onInput={handle2PasswordInput} required/>
                     {valid2Password==false && <p className="p-2 text-danger">Passwords do not match</p>}
                 </Form.Group>
 
@@ -89,7 +117,7 @@ function SignUpContainer() {
                     Submit
                 </Button>
 
-                <Link to="/login" className="btn btn-primary m-1" >Login</Link>
+                <Link to="/login" className="btn btn-primary m-1" >Go To Login</Link>
 
                 <Link to="/forgotpassword" className="btn btn-danger">Forgot Password</Link>
 
