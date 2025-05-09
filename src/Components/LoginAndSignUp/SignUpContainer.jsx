@@ -3,8 +3,13 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from "react-router-dom";
 import SkipToMain from "./SkipToMain";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { auth } from "../../firebase";
+import { useNavigate } from "react-router-dom";
 
 function SignUpContainer() {
+
+    let navigate = useNavigate();
 
     const [userEmails, setUserEmails] = useState([])
     let [validEmail, setValidEmail] = useState(true)
@@ -30,33 +35,34 @@ function SignUpContainer() {
 
     }, [])
 
+    async function postData(inputObj) {
+        try {
+            const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/users/create", {
+                method : "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body : JSON.stringify(inputObj)
+            });
+            if (!response.ok) {
+                throw new Error(response.statusText)
+            }
+            const jsonresponse = await response.json()
+            console.log(jsonresponse)
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+
     async function handleSignUp(formData) { 
-        if (validEmail && !userExists && validPassword && valid2Password) {
-            let inputObj = {}
-            inputObj.userName = formData.get("formBasicUsername")
-            inputObj.userEmail = formData.get("formBasicPassword")
-            inputObj.userPassword = formData.get("formBasicPassword")
+        let inputObj = {}
+            inputObj.userName = formData.get("userName")
+            inputObj.userEmail = formData.get("userEmail")
+            inputObj.userPassword = formData.get("userPassword")
             inputObj.userFavorites = []
             inputObj.userIsAdmin = false
-            
-            try {
-                const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/users/create", {
-                    method : "POST",
-                    headers: {
-                        'Accept': '*',
-                        'Content-Type': 'application/json'
-                    },
-                    body : JSON.stringify(inputObj)
-                });
-                if (!response.ok) {
-                    throw new Error("An error occured " + response.status + response.statusText)
-                }
-                const jsonresponse = await response.json()
-                console.log(jsonresponse)
-            } catch (error) {
-                console.log(error.message)
-            }
-            
+        if (validEmail && !userExists && validPassword && valid2Password) {  
+            postData(inputObj)
         }
     }
 
@@ -84,44 +90,76 @@ function SignUpContainer() {
         (inputPassword === enteredPass || inputPassword == "") ? setValid2Password(true) : setValid2Password(false) 
     }
 
+    async function handleGoogleClick() {
+        // const auth = getAuth(); Not needed since im importing it after initialisation in firebase.js
+        
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+        .then(async (result) => {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            // The signed-in user info.
+            const user = result.user;
+            // IdP data available using getAdditionalUserInfo(result)
+            // ...
+            const userToken = await user.getIdToken();
+            // sending the token to get authenticated
+            const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/users/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${userToken}`,
+                },
+                });
+                const data = await response.json();
+                if (response.ok) {
+                // Redirect or update UI
+                navigate("/"); // or use window.location.href
+                }
+
+        }).catch((error) => {
+            // Handle Errors here.
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            
+            console.log(errorCode, errorMessage)
+
+            // The email of the user's account used.
+            // const email = error.customData.email;
+            // The AuthCredential type that was used.
+            // const credential = GoogleAuthProvider.credentialFromError(error);
+            // ...
+            
+        });
+    }
+
     return (
         <>
         <div className="signUpDiv w-25 m-auto h-50 bg-white p-4 rounded" id="signUpDiv" 
                 style={{position : "relative", top : "150px", textAlign : "center"}}>
-            <Form action={handleSignUp}>
+            <form action={handleSignUp}>
 
-                <Form.Group className="mb-3" controlId="formBasicUsername">
-                    <Form.Control type="text" placeholder="Enter your Username" required/>
-                </Form.Group>
+                <input type="text" placeholder="Enter your Username" name="userName" required className="mb-3"/>
 
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Control type="email" placeholder="Enter your email" onInput={handleEmailInput} required/>
-                    {validEmail == false && <p className="p-2 text-warning">Please enter a valid email format</p>}
+                <input type="email" placeholder="Enter your email" onInput={handleEmailInput} required name="userEmail"/>
+                    {validEmail == false && <p className="p-2 text-warning mb-3">Please enter a valid email format</p>}
                     {userExists && <p className="p-2 text-danger">User already exists!</p>}
-                    <Form.Text className="text-muted">
-                    We'll never share your email with anyone else.
-                    </Form.Text>
-                </Form.Group>
+                <p className="text-muted">We'll never share your email with anyone else.</p>
 
-                <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Control type="password" placeholder="Enter your Password" onInput={handlePasswordInput} required/>
-                    {validPassword==false && <p>Enter a password that is 8 to 16 characters long, contains only lowercase letters, uppercase letters, numbers, no special characters or spaces.</p>}
-                </Form.Group>
+                <input type="password" placeholder="Enter your Password" onInput={handlePasswordInput} required name="userPassword" className="mb-3"/>
+                {validPassword==false && <p>Enter a password that is 8 to 16 characters long, contains only lowercase letters, uppercase letters, numbers, no special characters or spaces.</p>}
 
-                <Form.Group className="mb-3" controlId="formBasic2Password">
-                    <Form.Control type="password" placeholder="Confirm your Password" onInput={handle2PasswordInput} required/>
-                    {valid2Password==false && <p className="p-2 text-danger">Passwords do not match</p>}
-                </Form.Group>
+                <input type="password" placeholder="Confirm your Password" onInput={handle2PasswordInput} required className="mb-3"/>
+                {valid2Password==false && <p className="p-2 text-danger">Passwords do not match</p>}
+                <br />
+                <button className="btn btn-primary" type="submit">Submit</button>
+                <br />
+                <Link to="/login" className="btn w-75 border-secondary my-2" >Go To Login</Link>
 
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
+            </form> 
 
-                <Link to="/login" className="btn btn-primary m-1" >Go To Login</Link>
-
-                <Link to="/forgotpassword" className="btn btn-danger">Forgot Password</Link>
-
-            </Form> 
+            <button className="btn w-75 border-secondary my-2" onClick={handleGoogleClick}>Sign Up with Google</button>
 
             <SkipToMain />
         </div>
