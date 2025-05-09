@@ -112,8 +112,10 @@ function SignUpContainer() {
                     Authorization: `Bearer ${userToken}`,
                 },
                 });
-                const data = await response.json();
-                if (response.ok) {
+            const data = await response.json();
+            if (response.ok) {
+                // store the token in local storage  
+                localStorage.setItem("userToken", userToken);
                 // Redirect or update UI
                 navigate("/"); // or use window.location.href
                 }
