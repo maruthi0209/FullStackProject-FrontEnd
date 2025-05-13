@@ -4,7 +4,7 @@ export default function SkipToMain() {
 
     return (
         <>
-            <Link to="/" className="btn btn-primary m-2" >Skip To Main</Link>
+            <Link to="/" className="btn btn-secondary m-2" >Skip To Main</Link>
         </>
     )
 }

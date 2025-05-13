@@ -5,6 +5,11 @@ import { Link } from "react-router-dom"
 // import { MenuOutline } from 'react-ionicons'
 import { Heart } from 'react-ionicons'
 
+function getLocalStorage() {
+    const userToken = localStorage.getItem("userToken");
+    return userToken;
+}
+
 function Logo() {
     return (
         <div className="logo" id="logo">
@@ -57,8 +62,10 @@ function MenuNavBarLabel() {
         </div>
         {
             labelClicked && <div className="MenuNavBar" id="MenuNavBarContents">
-            <a href="#" className="menunavlinks" id="menufavorites"><ListOutline color={'#FFFFFFF'}/>      Categories</a>
-            <Link to="/login" className="menunavlinks" id="menulogin">Login</Link>
+            {(window.location.pathname == "/") && <Link to="/categories" className="menunavlinks" id="menucategories"><ListOutline color={'#FFFFF'}/>Categories</Link>}
+                {(window.location.pathname == "/categories") && <Link to="/" className="menunavlinks" id="menuhome"><HomeOutline color={'#FFFFF'}/>Home</Link>}
+            { localStorage.getItem("userToken")!=null && <Link to="/user" className="menunavlinks" id="menuUser">User Profile</Link>}
+            {localStorage.getItem("userToken")==null && <Link to="/login" className="menunavlinks" id="menulogin">Login</Link>}
         </div>
         }
         
@@ -72,7 +79,8 @@ function NavBar() {
         <div id="navbar"> 
             {(window.location.pathname == "/") && <Link to="/categories" className="menunavlinks" id="menucategories"><ListOutline color={'#FFFFF'}/>Categories</Link>}
                 {(window.location.pathname == "/categories") && <Link to="/" className="menunavlinks" id="menuhome"><HomeOutline color={'#FFFFF'}/>Home</Link>}
-            <Link to="/login" className="menunavlinks" id="menulogin">Login</Link>
+            { localStorage.getItem("userToken")!=null && <Link to="/user" className="menunavlinks" id="menuUser">User Profile</Link>}
+            {localStorage.getItem("userToken")==null && <Link to="/login" className="menunavlinks" id="menulogin">Login</Link>}
         </div>
     )
 }

@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react"
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import { Link } from "react-router-dom";
 import SkipToMain from "./SkipToMain";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -104,21 +102,21 @@ function SignUpContainer() {
             // IdP data available using getAdditionalUserInfo(result)
             // ...
             const userToken = await user.getIdToken();
-            // sending the token to get authenticated
-            const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/users/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${userToken}`,
-                },
-                });
-            const data = await response.json();
-            if (response.ok) {
+            // // sending the token to get authenticated
+            // const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/users/login", {
+            //     method: "POST",
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //         Authorization: `Bearer ${userToken}`,
+            //     },
+            //     });
+            // const data = await response.json();
+            // if (response.ok) {
                 // store the token in local storage  
                 localStorage.setItem("userToken", userToken);
                 // Redirect or update UI
                 navigate("/"); // or use window.location.href
-                }
+                // }
 
         }).catch((error) => {
             // Handle Errors here.
