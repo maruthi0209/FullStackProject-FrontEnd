@@ -9,6 +9,9 @@ export default function LoginContainer() {
 
     let navigate = useNavigate();
 
+    let [error, setError] = useState(false)
+    let [errMessge, setErrMessage] = useState(null)
+
     const [loading, setLoading] = useState(false);
     const [user, setUser] = useState(null);
 
@@ -64,14 +67,18 @@ export default function LoginContainer() {
                 body: JSON.stringify({ "userEmail" : loginEmail, "userPassword" :loginPassword }),
             });
             if (!res.ok) {
-                throw new Error("Error occured during the login process" + res.statusText)
+                throw new Error(await res.json())
             }
             const data = await res.json();
             localStorage.setItem("userToken", data.token)
             navigate("/")
         } catch (error) {
             console.log(error.message)
-
+            setError(true)
+            setErrMessage(error.message)
+            setTimeout(()=> {
+                setError(false)
+            }, 5000)
         }
     }
 
@@ -81,10 +88,16 @@ export default function LoginContainer() {
                 style={{position : "relative", top : "200px", textAlign : "center"}}>
                 
                 <form action={handleLogin}>
-                    <input type="email" placeholder="Enter email" className="mb-3" name='loginEmail' required/>
+                    {error && <p style={{color : "red"}}>{errMessge}</p>} <br />
+                    <div className="form-floating mb-2">
+                        <input type="email" placeholder="Enter email" className="form-control" id="formLogin" name='loginEmail' required/>
+                        <label htmlFor="formLogin">Enter email</label>
+                    </div>
 
-                    <input type="password" placeholder="Enter Password" className="mb-3" name='loginPassword' required/>
-                    <br />
+                    <div className="form-floating mb-2">
+                        <input type="password" placeholder="Enter Password" className="form-control" name='loginPassword' id="formPass" required/>
+                        <label htmlFor="formPass">Enter Password</label>
+                    </div>
 
                     <button type="submit" className="m-1 btn btn-primary">Submit</button>
 
@@ -94,9 +107,7 @@ export default function LoginContainer() {
 
                 <div className="w-100">
                     <Link to="/signup" className=" m-2" >Sign Up!</Link>
-                
-                    <Link to="/forgotpassword" className=" m-2">Forgot Password</Link>
-
+                    {/* <Link to="/forgotpassword" className=" m-2">Forgot Password</Link> */}
                     <SkipToMain />
                 </div>
             </div>

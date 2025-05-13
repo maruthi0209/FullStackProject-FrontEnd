@@ -138,21 +138,32 @@ function SignUpContainer() {
         <>
         <div className="signUpDiv w-25 m-auto h-50 bg-white p-4 rounded" id="signUpDiv" 
                 style={{position : "relative", top : "150px", textAlign : "center"}}>
-            <form action={handleSignUp}>
+            <form action={handleSignUp} className="">
 
-                <input type="text" placeholder="Enter your Username" name="userName" required className="mb-3"/>
+                <div className="form-floating mb-2">
+                    <input type="text" name="userName" id="floatingInput" required className="form-control" placeholder="Enter your Username"/>
+                <label htmlFor="floatingInput">Enter your Username</label>
+                </div>
 
-                <input type="email" placeholder="Enter your email" onInput={handleEmailInput} required name="userEmail"/>
+                <div className="form-floating mb-2">
+                    <input type="email" onInput={handleEmailInput} id="floatingEmail" required name="userEmail" className="form-control"/>
+                <label htmlFor="floatingEmail">Enter your email</label>
                     {validEmail == false && <p className="p-2 text-warning mb-3">Please enter a valid email format</p>}
                     {userExists && <p className="p-2 text-danger">User already exists!</p>}
                 <p className="text-muted">We'll never share your email with anyone else.</p>
-
-                <input type="password" placeholder="Enter your Password" onInput={handlePasswordInput} required name="userPassword" className="mb-3"/>
-                {validPassword==false && <p>Enter a password that is 8 to 16 characters long, contains only lowercase letters, uppercase letters, numbers, no special characters or spaces.</p>}
-
-                <input type="password" placeholder="Confirm your Password" onInput={handle2PasswordInput} required className="mb-3"/>
-                {valid2Password==false && <p className="p-2 text-danger">Passwords do not match</p>}
-                <br />
+                </div>
+                
+                <div className="form-floating mb-2">
+                    <input type="password" placeholder="Enter your Password" id="floatingPassword" onInput={handlePasswordInput} required name="userPassword" className="form-control"/>
+                    <label htmlFor="floatingPassword">Enter your Password</label>
+                    {validPassword==false && <p>Enter a password that is 8 to 16 characters long, contains only lowercase letters, uppercase letters, numbers, no special characters or spaces.</p>}
+                </div>
+                
+                <div className="form-floating mb-2">
+                    <input type="password" placeholder="Confirm your Password" onInput={handle2PasswordInput} required className="form-control" id="floatPass2"/>
+                    <label htmlFor="floatingPass2">Confirm your Password</label>
+                    {valid2Password==false && <p className="p-2 text-danger">Passwords do not match</p>}
+                </div>
                 <button className="btn btn-primary" type="submit">Submit</button>
                 <br />
                 <Link to="/login" className="btn w-75 border-secondary my-2" >Go To Login</Link>

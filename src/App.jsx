@@ -6,6 +6,7 @@ import Categories from './Pages/Categories'
 import PageNotFound from './Pages/PageNotFound'
 import SignUp from './Pages/SignUp'
 import ForgotPassword from './Components/LoginAndSignUp/ForgotPassword'
+import UserProfile from './Pages/UserProfile'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/signup' element={<SignUp/>} />
         <Route path='/forgotpassword' element={<ForgotPassword />} />
         <Route path='/categories' element={<Categories/>} />
+        <Route path='/userprofile' element={<UserProfile />} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>
     </>

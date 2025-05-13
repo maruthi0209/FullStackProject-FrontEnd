@@ -79,7 +79,7 @@ function NavBar() {
         <div id="navbar"> 
             {(window.location.pathname == "/") && <Link to="/categories" className="menunavlinks" id="menucategories"><ListOutline color={'#FFFFF'}/>Categories</Link>}
                 {(window.location.pathname == "/categories") && <Link to="/" className="menunavlinks" id="menuhome"><HomeOutline color={'#FFFFF'}/>Home</Link>}
-            { localStorage.getItem("userToken")!=null && <Link to="/user" className="menunavlinks" id="menuUser">User Profile</Link>}
+            { localStorage.getItem("userToken")!=null && <Link to="/userprofile" className="menunavlinks" id="menuUser">User Profile</Link>}
             {localStorage.getItem("userToken")==null && <Link to="/login" className="menunavlinks" id="menulogin">Login</Link>}
         </div>
     )

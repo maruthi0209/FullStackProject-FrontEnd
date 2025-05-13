@@ -1,7 +1,0 @@
-function UserDetails() {
-    return (
-        <>
-        LoginPage
-        </>
-    )
-}
