@@ -1,14 +1,9 @@
 import { useState, useEffect } from "react"
 import screenscorelogo from "../../assets/ScreenScore_dark.png"
-import { SearchOutline, MenuOutline, ListOutline, HomeOutline } from 'react-ionicons'
+// import { HomeOutline } from 'react-icons'
+import { IoMdSearch, IoMdMenu , IoIosList , IoIosHome  } from "react-icons/io";
 import { Link } from "react-router-dom"
 // import { MenuOutline } from 'react-ionicons'
-import { Heart } from 'react-ionicons'
-
-function getLocalStorage() {
-    const userToken = localStorage.getItem("userToken");
-    return userToken;
-}
 
 function Logo() {
     return (
@@ -32,20 +27,20 @@ function SearchBar() {
         {
             matches && 
             <>
-                <button type="button" id="menusearchButton" onClick={()=>{setmenusearchbuttonclicked(!menusearchbuttonclicked)}}><SearchOutline color={'#FFFFFF'} /></button>
+                <button type="button" id="menusearchButton" onClick={()=>{setmenusearchbuttonclicked(!menusearchbuttonclicked)}}><IoMdSearch color={'#FFFFFF'} /></button>
             </>   
         }
         {
             (matches && menusearchbuttonclicked) && <div id="searchBarContent">
                 <input type="text" name="searchBar" id="contentsearchBar" placeholder="Search Movies, Actors or Genre" />
-                <button type="button" id="contentsearchButton"><SearchOutline color={'#000000'} /></button>
+                <button type="button" id="contentsearchButton"><IoMdSearch color={'#000000'} /></button>
             </div>
         }
         { 
             (!matches || ((!matches && menusearchbuttonclicked))) &&// (!matches || menusearchbuttonclicked) &&
             <>
                 <input type="text" name="searchBar" id="searchBar" placeholder="Search Movies, Actors or Genre" />
-                <button type="button" id="searchButton"><SearchOutline color={'#000000'} /></button>
+                <button type="button" id="searchButton"><IoMdSearch color={'#000000'} /></button>
             </> 
         }
         </div>
@@ -58,12 +53,12 @@ function MenuNavBarLabel() {
         <>
         <div className="MenuNavBar" id="MenuNavBarLabel" >
             {/* <label htmlFor="checkbox"><MenuOutline  color={'#FFFFFF'} /></label> */}
-            <button type="button" id="MenuNavBarButton" onClick={() => {setlabelClicked(!labelClicked)}}><MenuOutline  color={'#FFFFFF'} /></button>
+            <button type="button" id="MenuNavBarButton" onClick={() => {setlabelClicked(!labelClicked)}}><IoMdMenu  color={'#FFFFFF'} /></button>
         </div>
         {
             labelClicked && <div className="MenuNavBar" id="MenuNavBarContents">
-            {(window.location.pathname == "/") && <Link to="/categories" className="menunavlinks" id="menucategories"><ListOutline color={'#FFFFF'}/>Categories</Link>}
-                {(window.location.pathname == "/categories") && <Link to="/" className="menunavlinks" id="menuhome"><HomeOutline color={'#FFFFF'}/>Home</Link>}
+            {(window.location.pathname == "/") && <Link to="/categories" className="menunavlinks" id="menucategories"><IoIosList color={'#FFFFF'}/>Categories</Link>}
+                {(window.location.pathname == "/categories") && <Link to="/" className="menunavlinks" id="menuhome"><IoIosHome color={'#FFFFF'}/>Home</Link>}
             { localStorage.getItem("userToken")!=null && <Link to="/user" className="menunavlinks" id="menuUser">User Profile</Link>}
             {localStorage.getItem("userToken")==null && <Link to="/login" className="menunavlinks" id="menulogin">Login</Link>}
         </div>
@@ -77,8 +72,8 @@ function NavBar() {
     // // https://stackoverflow.com/questions/39823681/read-the-current-full-url-with-react
     return (
         <div id="navbar"> 
-            {(window.location.pathname == "/") && <Link to="/categories" className="menunavlinks" id="menucategories"><ListOutline color={'#FFFFF'}/>Categories</Link>}
-                {(window.location.pathname == "/categories") && <Link to="/" className="menunavlinks" id="menuhome"><HomeOutline color={'#FFFFF'}/>Home</Link>}
+            {(window.location.pathname == "/") && <Link to="/categories" className="menunavlinks" id="menucategories"><IoIosList color={'#FFFFF'}/>Categories</Link>}
+                {(window.location.pathname == "/categories") && <Link to="/" className="menunavlinks" id="menuhome"><IoIosHome color={'#FFFFF'}/>Home</Link>}
             { localStorage.getItem("userToken")!=null && <Link to="/userprofile" className="menunavlinks" id="menuUser">User Profile</Link>}
             {localStorage.getItem("userToken")==null && <Link to="/login" className="menunavlinks" id="menulogin">Login</Link>}
         </div>

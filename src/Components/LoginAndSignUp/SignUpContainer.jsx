@@ -4,6 +4,7 @@ import SkipToMain from "./SkipToMain";
 import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 function SignUpContainer() {
 
@@ -34,6 +35,7 @@ function SignUpContainer() {
     }, [])
 
     async function postData(inputObj) {
+        const loadingToast = toast.loading("Signing you up...");
         try {
             const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/users/create", {
                 method : "POST",
@@ -46,9 +48,25 @@ function SignUpContainer() {
                 throw new Error(response.statusText)
             }
             const jsonresponse = await response.json()
-            console.log(jsonresponse)
+            // console.log(jsonresponse)
+            toast.update(loadingToast, {
+            render: "Signup successful!",
+            type: "success",
+            isLoading: false,
+            autoClose: 3000,
+                });
+            // store the token in local storage  
+            localStorage.setItem("userToken", userToken);
+            // Redirect or update UI
+            navigate("/"); // or use window.location.href
         } catch (error) {
             console.log(error.message)
+            toast.update(loadingToast, {
+            render: `Signup failed: ${error.message}`,
+            type: "error",
+            isLoading: false,
+            autoClose: 3000,
+                });
         }
     }
 

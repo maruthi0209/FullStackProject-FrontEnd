@@ -4,6 +4,7 @@ import {useState, useEffect } from "react";
 import { auth, provider } from "../../firebase";
 import { signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 export default function LoginContainer() {
 
@@ -58,6 +59,8 @@ export default function LoginContainer() {
 
     async function handleLogin( formData) {
         // e.preventDefault()
+        const loadingToast = toast.loading("Logging you in...");
+
         const loginEmail = formData.get("loginEmail")
         const loginPassword = formData.get("loginPassword")
         try {
@@ -70,10 +73,23 @@ export default function LoginContainer() {
                 throw new Error(await res.json())
             }
             const data = await res.json();
+            // // toast message
+            toast.update(loadingToast, {
+            render: "Login successful!",
+            type: "success",
+            isLoading: false,
+            autoClose: 3000,
+                });
             localStorage.setItem("userToken", data.token)
             navigate("/")
         } catch (error) {
             console.log(error.message)
+            toast.update(loadingToast, {
+            render: `Login failed: ${error.message}`,
+            type: "error",
+            isLoading: false,
+            autoClose: 3000,
+            });
             setError(true)
             setErrMessage(error.message)
             setTimeout(()=> {

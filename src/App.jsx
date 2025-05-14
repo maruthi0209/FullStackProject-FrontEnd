@@ -7,6 +7,8 @@ import PageNotFound from './Pages/PageNotFound'
 import SignUp from './Pages/SignUp'
 import ForgotPassword from './Components/LoginAndSignUp/ForgotPassword'
 import UserProfile from './Pages/UserProfile'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
         <Route path='/userprofile' element={<UserProfile />} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>
+      <ToastContainer position="top-center" autoClose={3000} />
     </>
   )
 }
