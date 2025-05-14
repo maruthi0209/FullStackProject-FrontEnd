@@ -6,6 +6,7 @@ import HighestGrossing from "../Components/HighestGrossing/HighestGrossing";
 import TopRated from "../Components/TopRated/TopRated";
 import UpcomingReleases from "../Components/UpcomingReleases/UpcomingReleases";
 
+
 export default function HomePage() {
     return (
         <>
@@ -18,6 +19,7 @@ export default function HomePage() {
             <FanFavorites />
         <Footer />
         </div>
+        
         </>
     )
 }

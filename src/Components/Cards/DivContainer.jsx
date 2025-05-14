@@ -1,7 +1,8 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
+// import Card from 'react-bootstrap/Card';
+import DivInnerCard from './DivInnerCard';
 
 export default function DivContainer({showlist}) {
 
@@ -13,16 +14,7 @@ export default function DivContainer({showlist}) {
                 showlist.map((element, index) => {
                     return (
                         <Col key={index} className='m-auto'>
-                        <Card key={index} className='innerCard'>
-                            <Card.Img src={element.moviePoster} />
-                            <Card.Body>
-                                <Card.Text style={{ fontSize : "0.75rem"}}>
-                                <b>{element.movieName}</b>, {element.movieReleaseYear} <br />
-                                Director : {element.movieDirector}
-                                
-                                </Card.Text>
-                            </Card.Body>
-                        </Card>
+                        < DivInnerCard displayValue={element}/>
                         </Col>
                     )
                 })
