@@ -1,24 +1,29 @@
-import HotTrending from "../Components/Carousel/HotTrending";
-import FanFavorites from "../Components/FanFavorites/FanFavorites";
-import Footer from "../Components/HeaderAndFooter/Footer";
 import Header from "../Components/HeaderAndFooter/Header";
+import HotTrending from "../Components/Carousel/HotTrending";
 import HighestGrossing from "../Components/HighestGrossing/HighestGrossing";
-import TopRated from "../Components/TopRated/TopRated";
-import UpcomingReleases from "../Components/UpcomingReleases/UpcomingReleases";
+import { Suspense, lazy } from 'react';
+const FanFavorites = lazy(() => import("../Components/FanFavorites/FanFavorites"));
+const UpcomingReleases = lazy(() => import("../Components/UpcomingReleases/UpcomingReleases"));
+const TopRated = lazy(() => import("../Components/TopRated/TopRated"));
+const Footer = lazy(() => import("../Components/HeaderAndFooter/Footer"))
 
 
 export default function HomePage() {
     return (
         <>
-        <div className='app'>
+        
         <Header />
+        <div className='app p-2 w-100 h-100 m-auto'>
             <HotTrending />
             <HighestGrossing />
-            <TopRated />
-            <UpcomingReleases />
-            <FanFavorites />
-        <Footer />
+            <Suspense fallback={<div>Loading Component...</div>}>
+                <TopRated />
+                <UpcomingReleases />
+                <FanFavorites />
+            </Suspense>
         </div>
+        <Footer />
+        
         
         </>
     )

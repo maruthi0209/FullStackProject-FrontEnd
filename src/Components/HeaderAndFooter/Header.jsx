@@ -84,7 +84,7 @@ export default function Header() {
 
     return (
         <>
-        <div className="header space-mono-regular">
+        <div className="header space-mono-regular m-auto">
             <Logo />
             <SearchBar />
             <NavBar />

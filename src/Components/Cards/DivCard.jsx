@@ -7,7 +7,7 @@ export default function DivCard({title, list, idname}) {
        <>
         <Card style={{width : "85%", margin : "auto"}} className='outerCard my-4' id={idname}>
         <Card.Body>
-            <Card.Title className='my-2 py-2'>{title}</Card.Title>
+            <Card.Title className='my-2 py-2 space-mono-bold'>{title}</Card.Title>
                 <DivContainer  showlist={list} />
         </Card.Body>
         </Card>
