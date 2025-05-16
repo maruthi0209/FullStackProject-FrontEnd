@@ -122,13 +122,13 @@
 /* CSS code for Header section ends here*/
 
 /* CSS code for others starts here */
-.app {
+.app, .categories {
   background-image: url("./assets/peakpx.jpg");
 }
-.categories {
+.movie-details {
   background-image: url("./assets/categories-background.jpg");
 }
-.app, .categories {
+.app, .categories, .movie-details {
   background-attachment: fixed;
 }
 .innerCard {

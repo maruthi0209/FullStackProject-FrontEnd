@@ -1,11 +1,17 @@
 import Card from 'react-bootstrap/Card';
+import { useNavigate } from "react-router-dom";
 
 export default function DivInnerCard({displayValue}) {
+
+    const navigate = useNavigate();
+    const handleClick = () => {
+        navigate(`/moviedetails/${displayValue._id}`); // movie._id passed in URL
+    };
 
     const imageUrl = `${displayValue.moviePoster}`;
     return (
         <>
-            <Card className='innerCard'>
+            <Card className='innerCard' onClick={handleClick} style={{cursor : "pointer"}}>
                 <Card.Img variant="top" src={imageUrl} alt="Movie Poster" style={{objectFit : "cover", width : "100%", display : "block"}}/>
                 <Card.Body className='space-mono-regular'>
                     <Card.Text style={{ fontSize : "0.75rem"}}>
