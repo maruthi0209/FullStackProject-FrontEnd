@@ -3,11 +3,11 @@ import Badge from 'react-bootstrap/Badge';
 
 export default function MovieGenre({genreId}) {
 
-    let [genreDetails, setGenreDetails] = useState(null)
+    let [genreDetails, setGenreDetails] = useState({})
     useEffect(() => {
         async function getGenreDetails(genreId) {
             try {
-                const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/genre/id/" + genreId)
+                const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/genres/id/" + genreId)
                 if(!response.ok) {
                     throw new Error("Error occured" + response.json())
                 }

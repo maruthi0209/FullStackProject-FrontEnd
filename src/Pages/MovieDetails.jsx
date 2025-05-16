@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom"
 import MovieMedia from "../Components/MovieMedia/MovieMedia"
 import MovieBanner from "../Components/MovieDetails/MovieBanner"
 import MovieInnerDetails from "../Components/MovieDetails/MovieInnerDetails"
+import MovieCast from "../Components/MovieDetails/MovieCast"
 
 export default function MovieDetails() {
 
@@ -38,7 +39,7 @@ export default function MovieDetails() {
                 <MovieMedia moviePoster={movieDetails.moviePoster} movieTrailer={movieDetails.movieTrailer}/>
                 <MovieInnerDetails movieGenre={movieDetails.movieGenre} movieDirector={movieDetails.movieDirector} movieWriter={movieDetails.movieWriter}
                     movieProducer={movieDetails.movieProducer} movieStudio={movieDetails.movieStudio} movieCountry={movieDetails.movieCountry} />
-                
+                <MovieCast movieActors={movieDetails.movieActors} />
             </div>
             <Footer />
         </>

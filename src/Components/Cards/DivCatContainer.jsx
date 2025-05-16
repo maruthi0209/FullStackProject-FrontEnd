@@ -21,7 +21,6 @@ export default function DivCatContainer({genreName}) {
         getMoviesList(`${genreName}`)
     }, [genreName])
 
-    console.log(movieList)
     return (
         <>
             <DivContainer showlist={movieList} />
