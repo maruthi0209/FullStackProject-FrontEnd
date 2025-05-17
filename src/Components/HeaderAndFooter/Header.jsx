@@ -39,7 +39,7 @@ function SearchBar() {
         { 
             (!matches || ((!matches && menusearchbuttonclicked))) &&// (!matches || menusearchbuttonclicked) &&
             <>
-                <input type="text" name="searchBar" id="searchBar" placeholder="Search Movies, Actors or Genre" />
+                <input type="text" name="searchBar" id="searchBar" placeholder="Search Movies" />
                 <button type="button" id="searchButton"><IoMdSearch color={'#000000'} /></button>
             </> 
         }

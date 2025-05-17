@@ -52,7 +52,7 @@
   height: 5%;
   background-color: var(--primary-color);
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -105,7 +105,7 @@
 }
 
 #navbar {
-  width: 25%;
+  width: 35%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -114,7 +114,7 @@
   width: 15px;
 }
 .navlinks , #sociallinks a, .menunavlinks{
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: var(--secondary-color);
   text-decoration: none;
 }
@@ -122,12 +122,13 @@
 /* CSS code for Header section ends here*/
 
 /* CSS code for others starts here */
-.app, .categories {
-  background-image: url("./assets/peakpx.jpg");
+.app, .categories, .movie-details {
+  /* background-image: url("./assets/peakpx.jpg"); */
+  background-color: var(--primary-color);
 }
-.movie-details {
+/* .movie-details {
   background-image: url("./assets/categories-background.jpg");
-}
+} */
 .app, .categories, .movie-details {
   background-attachment: fixed;
 }
@@ -156,6 +157,95 @@
 }
 
 /* CSS code for hot trending topic section ends here */
+
+/*
+/* Main Footer Styles */
+.footer {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 20px 0 10px;
+  font-family: 'Space Mono', monospace;
+}
+
+.footer-image{
+  /* display: inline; */
+  width: 10%;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+/* About Me Section */
+.about-me {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Socials Section */
+.socials {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-heading {
+  color: #ffffff;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.footer-text {
+  color: #b3b3b3;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.email-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.email-link:hover {
+  color: #f5a623;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.social-link {
+  color: #ffffff;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.social-link:hover {
+  color: #f5a623;
+}
+
+/* Copyright Section */
+.copyright {
+  text-align: center;
+  padding-top: 10px;
+  margin-top: 10px;
+  border-top: 1px solid #333;
+}
+
+/* Font Awesome Icons */
+/* @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'); */
+
+
 
 /* CSS code for Footer section starts here*/
 

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, replace } from "react-router-dom";
 import SkipToMain from "./SkipToMain";
 import {useState, useEffect } from "react";
 import { auth, provider } from "../../firebase";
@@ -47,7 +47,7 @@ export default function LoginContainer() {
         // store the token in local storage  
         localStorage.setItem("userToken", idToken);
         // Redirect or update UI
-        navigate("/"); // or use window.location.href
+        navigate("/", {replace : true}); // or use window.location.href
     //   } else {
     //     console.error("Backend login failed");
     //   }
@@ -81,7 +81,7 @@ export default function LoginContainer() {
             autoClose: 3000,
                 });
             localStorage.setItem("userToken", data.token)
-            navigate("/")
+            navigate("/", {replace : true})
         } catch (error) {
             console.log(error.message)
             toast.update(loadingToast, {
