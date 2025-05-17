@@ -6,6 +6,7 @@ import MovieMedia from "../Components/MovieMedia/MovieMedia"
 import MovieBanner from "../Components/MovieDetails/MovieBanner"
 import MovieInnerDetails from "../Components/MovieDetails/MovieInnerDetails"
 import { Suspense, lazy } from 'react';
+import MovieReviews from "../Components/MovieDetails/MovieReviews"
 const MovieCast = lazy(() => import("../Components/MovieDetails/MovieCast")) 
 
 export default function MovieDetails() {
@@ -42,6 +43,7 @@ export default function MovieDetails() {
                     movieProducer={movieDetails.movieProducer} movieStudio={movieDetails.movieStudio} movieCountry={movieDetails.movieCountry} />
                 <Suspense fallback={<div>Loading Component...</div>}>
                     <MovieCast movieActors={movieDetails.movieActors} />
+                    <MovieReviews movieId={movieDetails._id}/>
                 </Suspense>
             </div>
             <Footer />

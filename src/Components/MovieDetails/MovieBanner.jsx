@@ -5,7 +5,7 @@ export default function MovieBanner({movieName, movieReleaseYear, movieRunningTi
 
     return (
         <>
-            <div className="container m-auto p-2 m-2 d-flex flex-row align-items-center space-mono-regular bg-light rounded" style={{width : "80%", fontSize : "0.75rem"}}>
+            <div className="container m-auto p-2 m-2 d-flex flex-row align-items-center space-mono-regular bg-light rounded" style={{width : "80%", fontSize : "1rem"}}>
                 <MovieName movieName={movieName} movieReleaseYear={movieReleaseYear} movieRunningTimeInMinutes={movieRunningTimeInMinutes} />
                 <MovieRating movieAverageRating={movieAverageRating} favorited={favorited} />
             </div>
