@@ -28,7 +28,7 @@ export default function MovieBarChart({id}) {
     useEffect(() => {
         async function getChartData(id) {
             try {
-                const response = await fetch("https://https://fullstackproject-backend-z5rx.onrender.com/reviews/bargraphdata/" + id)
+                const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/reviews/bargraphdata/" + id)
                 if(!response.ok) {
                     throw new Error("Error occured " + response.json())
                 }
@@ -44,7 +44,7 @@ export default function MovieBarChart({id}) {
     const graphData = {
             labels : ['Bad', 'Average', 'Good', 'Excellent'], 
             datasets : [{
-                label : 'Audience rating out of 10',
+                label : 'Audience Rating count',
                 data : chartData,
                 backgroundColor : [
                     'rgba(255, 99, 132, 0.2)',
@@ -76,7 +76,7 @@ export default function MovieBarChart({id}) {
 
     return (
         <>
-            {chartData && <Bar data={graphData} options={options} />}
+            {chartData && <Bar data={graphData} options={options}/>}
         </>
     )
 } 
