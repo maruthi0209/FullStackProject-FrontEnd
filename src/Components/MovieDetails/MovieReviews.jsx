@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import UserReviewCard from '../Cards/UserReviewCard';
-import BarChart from "../BarChart"
+import MovieBarChart from './MovieBarChart';
 
 export default function MovieReviews({movieId}) {
     
@@ -38,15 +38,15 @@ export default function MovieReviews({movieId}) {
         <>
             <Card className="container rounded m-auto my-2 space-mono-regular" style={{width : "80%"}}>
                 <Card.Body>
-                    <div className='piechart w-50 my-2 m-auto'>
-                        <BarChart />
+                    <div className='barChart w-50 my-2 m-auto'>
+                        {movieId && < MovieBarChart id={movieId} />}
                     </div>
                     <div className='reviews'>
                         {movieReviews && currentItems.map((element, index) => {
                         return (
-                                <>
+                                <div className='reviewCard' key={index}>
                                     <UserReviewCard element={element} index={index} key={index}/>
-                                </>
+                                </div>
                             )
                         })
                     }

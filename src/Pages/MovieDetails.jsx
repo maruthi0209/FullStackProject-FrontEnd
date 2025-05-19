@@ -6,8 +6,9 @@ import MovieMedia from "../Components/MovieMedia/MovieMedia"
 import MovieBanner from "../Components/MovieDetails/MovieBanner"
 import MovieInnerDetails from "../Components/MovieDetails/MovieInnerDetails"
 import { Suspense, lazy } from 'react';
-import MovieReviews from "../Components/MovieDetails/MovieReviews"
+// import MovieReviews from "../Components/MovieDetails/MovieReviews"
 const MovieCast = lazy(() => import("../Components/MovieDetails/MovieCast")) 
+const MovieReviews = lazy(() => import("../Components/MovieDetails/MovieReviews"))
 
 export default function MovieDetails() {
 
