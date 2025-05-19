@@ -10,6 +10,7 @@ import {
   Tooltip, 
   Legend 
 } from 'chart.js';
+import Card from 'react-bootstrap/Card';
 
 // Register ChartJS components
 ChartJS.register(
@@ -76,7 +77,12 @@ export default function MovieBarChart({id}) {
 
     return (
         <>
-            {chartData && <Bar data={graphData} options={options}/>}
+          <Card className='m-auto my-2 w-100 m-auto'>
+              <Card.Body className='d-flex flex-row'>
+                  {chartData && <Bar data={graphData} options={options}/>}
+              </Card.Body>
+          </Card>
+            
         </>
     )
 } 
