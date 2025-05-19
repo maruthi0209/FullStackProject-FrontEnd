@@ -1,5 +1,6 @@
 :root{
-  --primary-color : #0E185F;
+  /* --primary-color : #0E185F; */
+  --primary-color : #FFFFFF;
   --secondary-color : #FDFAF6;
   --tertiary-color : #2FA4FF;
 }
@@ -115,7 +116,7 @@
 }
 .navlinks , #sociallinks a, .menunavlinks{
   font-size: 1rem;
-  color: var(--secondary-color);
+  /* color: var(--secondary-color); */
   text-decoration: none;
 }
 
@@ -195,7 +196,8 @@
 }
 
 .footer-heading {
-  color: #ffffff;
+  /* color: #ffffff; */
+  color: black;
   font-size: 1.2rem;
   margin-bottom: 20px;
   text-transform: uppercase;
@@ -209,7 +211,7 @@
 }
 
 .email-link {
-  color: #ffffff;
+  /* color: #ffffff; */
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -225,7 +227,7 @@
 }
 
 .social-link {
-  color: #ffffff;
+  /* color: #ffffff; */
   font-size: 1.5rem;
   transition: color 0.3s;
 }

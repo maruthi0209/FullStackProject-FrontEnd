@@ -1,5 +1,5 @@
 import { FaLinkedin, FaGithub, FaFacebook, FaInstagram } from 'react-icons/fa';
-import logo from "../../assets/ScreenScore_dark.png"
+import logo from "../../assets/ScreenScore_light.png"
 
 function AboutScreenScore() {
     return (

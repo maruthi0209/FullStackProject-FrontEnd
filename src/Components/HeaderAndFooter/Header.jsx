@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import screenscorelogo from "../../assets/ScreenScore_dark.png"
+import screenscorelogo from "../../assets/ScreenScore_light.png"
 // import { HomeOutline } from 'react-icons'
 import { IoMdSearch, IoMdMenu , IoIosList , IoIosHome  } from "react-icons/io";
 import { Link } from "react-router-dom"
@@ -23,7 +23,7 @@ function SearchBar() {
       }, []);
 
     return (
-        <div id="searchBarDiv">
+        <div id="searchBarDiv" className="border border-secondary">
         {
             matches && 
             <>
