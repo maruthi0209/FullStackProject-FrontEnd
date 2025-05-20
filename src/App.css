@@ -58,7 +58,7 @@
 }
 
 #logo{
-  width: 7%;
+  width: 6%;
 }
 #logoLink>img{
   display: block;
@@ -121,6 +121,43 @@
 }
 
 /* CSS code for Header section ends here*/
+
+.search-container {
+  position: absolute;
+  width: 300px;
+  margin: 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.suggestions-dropdown {
+  position: absolute;
+  width: 100%;
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-top: none;
+  background: white;
+  z-index: 1000;
+}
+
+.suggestion-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: #f5f5f5;
+}
+
+.error {
+  color: red;
+}
+
 
 /* CSS code for others starts here */
 .app, .categories, .movie-details {
