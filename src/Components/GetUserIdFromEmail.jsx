@@ -1,6 +1,6 @@
 // const { jwtDecode } = await import('jwt-decode')
 async function loadJwtDecode() {
-  const { jwtDecode } = await import('./something.js');
+  const { jwtDecode } = await import('jwt-decode');
   return jwtDecode;
 }
 
