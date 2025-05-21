@@ -72,9 +72,14 @@ function NavBar() {
     // // https://stackoverflow.com/questions/39823681/read-the-current-full-url-with-react
     return (
         <div id="navbar"> 
-            {(window.location.pathname == "/") && <Link to="/categories" className="menunavlinks" id="menucategories"><IoIosList color={'#FFFFF'}/>Categories</Link>}
+            {/* {(window.location.pathname == "/") && <Link to="/categories" className="menunavlinks" id="menucategories"><IoIosList color={'#FFFFF'}/>Categories</Link>}
                 {(window.location.pathname == "/categories") && <Link to="/" className="menunavlinks" id="menuhome"><IoIosHome color={'#FFFFF'}/>Home</Link>}
             { localStorage.getItem("userToken")!=null && <Link to="/userprofile" className="menunavlinks" id="menuUser">User Profile</Link>}
+            {localStorage.getItem("userToken")==null && <Link to="/login" className="menunavlinks" id="menulogin">Login</Link>} */}
+
+            {(window.location.pathname != "/") && <Link to="/" className="menunavlinks" id="menuhome"><IoIosHome color={'#FFFFF'}/>Home</Link>}
+            {(window.location.pathname != "/categories") && <Link to="/categories" className="menunavlinks" id="menucategories"><IoIosList color={'#FFFFF'}/>Categories</Link>}      
+            { localStorage.getItem("userToken")!=null && (window.location.pathname != "/userprofile") && <Link to="/userprofile" className="menunavlinks" id="menuUser">User Profile</Link>}
             {localStorage.getItem("userToken")==null && <Link to="/login" className="menunavlinks" id="menulogin">Login</Link>}
         </div>
     )
