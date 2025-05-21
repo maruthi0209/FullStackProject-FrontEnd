@@ -55,10 +55,11 @@ export default function MovieReviewCard({element, index, onUpdate}) {
                 <Card.Body className='d-flex flex-row'>
                     <MovieCard id={element.movieId} />
                     <ReviewCard userReview={element}/>
-                    <div className='d-flex flex-column align-items-center justify-content-center caveat-regular' style={{gap : "10px"}}>
+                    <div className='d-flex flex-column align-items-center justify-content-center caveat-regular' style={{gap : "20px"}}>
                         {!updateClicked && <button className="btn btn-warning" onClick={handleUpdateReview}>Edit</button>}
-                        <button className="btn btn-danger" onClick={handleDeleteReview}>Delete</button>
                         {updateClicked && <button className='btn btn-secondary' onClick={hideUpdateFormCard}>Close</button>}
+                        <button className="btn btn-danger" onClick={handleDeleteReview}>Delete</button>
+                        
                     </div>
                 </Card.Body>
             </Card>
