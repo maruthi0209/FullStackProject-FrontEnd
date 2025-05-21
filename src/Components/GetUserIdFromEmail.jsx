@@ -5,7 +5,7 @@ export default async function decodeToken(){
             if (token) {
             try {
                 const decoded = jwtDecode(token);
-                const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/users/getidfromemail/" + decoded.userEmail)
+                const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/users/getidfromemail/" + `${(decoded.email)? decoded.email : decoded.userEmail}`)
                 if(!response.ok) {
                     throw new Error("Error occured " + response.json())
                 }

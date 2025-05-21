@@ -56,7 +56,7 @@ function SignUpContainer() {
             autoClose: 3000,
                 });
             // store the token in local storage  
-            localStorage.setItem("userToken", userToken);
+            localStorage.setItem("userToken", jsonresponse.userToken);
             // Redirect or update UI
             navigate("/"); // or use window.location.href
         } catch (error) {

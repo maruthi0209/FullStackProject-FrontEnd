@@ -123,7 +123,7 @@ export default function LoginContainer() {
 
                 <div className="w-100">
                     <Link to="/signup" className=" m-2" >Sign Up!</Link>
-                    {/* <Link to="/forgotpassword" className=" m-2">Forgot Password</Link> */}
+                    <Link to="/forgotpassword" className=" m-2">Forgot Password</Link>
                     <SkipToMain />
                 </div>
             </div>

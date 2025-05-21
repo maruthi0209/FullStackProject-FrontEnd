@@ -22,6 +22,7 @@ function App() {
         <Route path='/categories' element={<Categories/>} />
         <Route path='/userprofile' element={<UserProfile />} />
         <Route path="/moviedetails/:id" element={<MovieDetails />} />
+        <Route path='/forgotpassword' element={<ForgotPassword />} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>
       <ToastContainer position="top-center" autoClose={3000} />
