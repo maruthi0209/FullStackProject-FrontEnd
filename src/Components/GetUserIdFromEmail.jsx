@@ -4,7 +4,7 @@ async function loadJwtDecode() {
   return jwtDecode;
 }
 
-function getToken() {
+function getToken(token) {
     // try {
     //     const decoded = jwtDecode(token);
     //     const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/users/getidfromemail/" + `${(decoded.email)? decoded.email : decoded.userEmail}`)

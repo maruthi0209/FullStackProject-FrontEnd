@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 // import {jwt_decode} from 'jwt-decode';
 import { Row, Col } from 'react-bootstrap';
 import { toast } from 'react-toastify';
-import decodeToken from '../GetUserIdFromEmail';
+import decodeToken from '../GetUserIdFromEmail2';
 import { Link } from "react-router-dom"
 
 export default function MovieReviewForm() {
