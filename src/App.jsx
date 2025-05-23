@@ -10,6 +10,7 @@ import UserProfile from './Pages/UserProfile'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import MovieDetails from './Pages/MovieDetails'
+import SearchResults from './Components/HeaderAndFooter/SearchResult'
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path='/userprofile' element={<UserProfile />} />
         <Route path="/moviedetails/:id" element={<MovieDetails />} />
         <Route path='/forgotpassword' element={<ForgotPassword />} />
+        <Route path='/search' element={<SearchResults />} />
         <Route path='*' element={<PageNotFound />} />
       </Routes>
       <ToastContainer position="top-center" autoClose={3000} />

@@ -1,6 +1,7 @@
 // ForgotPassword.jsx
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import VideoDiv from "../../Components/LoginAndSignUp/VideoDiv";
 
 export default function ForgotPassword() {
 
@@ -43,7 +44,10 @@ export default function ForgotPassword() {
   };
 
   return (
-    <div className='forgotPassword w-25 m-auto h-50 bg-white p-4 rounded' style={{ position: "relative", top: "200px", textAlign: "center" }}>
+
+    <>
+      <VideoDiv />
+      <div className='forgotPassword w-50 m-auto h-50 bg-white p-4 rounded' style={{ position: "relative", top: "300px", textAlign: "center"}}>
       {step === 1 && (
         <>
           <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Enter email" />
@@ -63,5 +67,7 @@ export default function ForgotPassword() {
         </>
       )}
     </div>
+    </>
+    
   );
 }

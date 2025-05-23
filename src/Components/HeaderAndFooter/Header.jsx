@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react"
 import screenscorelogo from "../../assets/ScreenScore_light.png"
-// import { HomeOutline } from 'react-icons'
 import { IoMdSearch, IoMdMenu , IoIosList , IoIosHome  } from "react-icons/io";
-import { Link } from "react-router-dom"
-// import { MenuOutline } from 'react-ionicons'
+import { Link, useNavigate } from "react-router-dom"
+import { useDebounce } from "./Debouncing";
 
 function Logo() {
     return (
@@ -14,35 +13,85 @@ function Logo() {
 }
 
 function SearchBar() {
-    const [matches, setMatches] = useState(window.matchMedia("(max-width: 424px)").matches)
+    const [matches, setMatches] = useState(window.matchMedia("(max-width: 424px)").matches);
     const [menusearchbuttonclicked, setmenusearchbuttonclicked] = useState(false);
-    const [ismobile, setIsMobile] = useState(false)
-    
-      useEffect(() => { // https://stackoverflow.com/questions/54491645/media-query-syntax-for-reactjs
-        window.matchMedia("(max-width: 424px)").addEventListener('change', e => {setMatches( e.matches )});
-      }, []);
+    const [searchQuery, setSearchQuery] = useState("");
+    const debouncedSearchQuery = useDebounce(searchQuery, 500);
+    const navigate = useNavigate();
+    const [isSearching, setIsSearching] = useState(false);
+
+    useEffect(() => {
+        window.matchMedia("(max-width: 424px)").addEventListener('change', e => setMatches(e.matches));
+        return () => {
+            window.matchMedia("(max-width: 424px)").removeEventListener('change', e => setMatches(e.matches));
+        };
+    }, []);
+
+    useEffect(() => {
+        if (debouncedSearchQuery.trim() !== "") {
+            setIsSearching(true);
+            // Perform search or navigate to search results
+            navigate(`/search?query=${debouncedSearchQuery}`);
+        }
+    }, [debouncedSearchQuery, navigate]);
+
+    const handleSearch = () => {
+        if (searchQuery.trim() !== "") {
+            navigate(`/search?query=${searchQuery}`);
+        }
+    };
 
     return (
         <div id="searchBarDiv" className="border border-secondary">
-        {
-            matches && 
-            <>
-                <button type="button" id="menusearchButton" onClick={()=>{setmenusearchbuttonclicked(!menusearchbuttonclicked)}}><IoMdSearch color={'#FFFFFF'} /></button>
-            </>   
-        }
-        {
-            (matches && menusearchbuttonclicked) && <div id="searchBarContent">
-                <input type="text" name="searchBar" id="contentsearchBar" placeholder="Search Movies, Actors or Genre" />
-                <button type="button" id="contentsearchButton"><IoMdSearch color={'#000000'} /></button>
-            </div>
-        }
-        { 
-            (!matches || ((!matches && menusearchbuttonclicked))) &&// (!matches || menusearchbuttonclicked) &&
-            <>
-                <input type="text" name="searchBar" id="searchBar" placeholder="Search Movies" />
-                <button type="button" id="searchButton"><IoMdSearch color={'#000000'} /></button>
-            </> 
-        }
+            {matches && (
+                <>
+                    <button 
+                        type="button" 
+                        id="menusearchButton" 
+                        onClick={() => setmenusearchbuttonclicked(!menusearchbuttonclicked)}
+                    >
+                        <IoMdSearch color={'#FFFFFF'} />
+                    </button>
+                </>   
+            )}
+            {(matches && menusearchbuttonclicked) && (
+                <div id="searchBarContent">
+                    <input 
+                        type="text" 
+                        name="searchBar" 
+                        id="contentsearchBar" 
+                        placeholder="Search Movies, Actors or Genre"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                    <button 
+                        type="button" 
+                        id="contentsearchButton"
+                        onClick={handleSearch}
+                    >
+                        <IoMdSearch color={'#000000'} />
+                    </button>
+                </div>
+            )}
+            {(!matches || ((!matches && menusearchbuttonclicked))) && (
+                <>
+                    <input 
+                        type="text" 
+                        name="searchBar" 
+                        id="searchBar" 
+                        placeholder="Search Movies"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                    <button 
+                        type="button" 
+                        id="searchButton"
+                        onClick={handleSearch}
+                    >
+                        <IoMdSearch color={'#000000'} />
+                    </button>
+                </> 
+            )}
         </div>
     )
 }
@@ -57,9 +106,9 @@ function MenuNavBarLabel() {
         </div>
         {
             labelClicked && <div className="MenuNavBar" id="MenuNavBarContents">
-            {(window.location.pathname == "/") && <Link to="/categories" className="menunavlinks" id="menucategories"><IoIosList color={'#FFFFF'}/>Categories</Link>}
-                {(window.location.pathname == "/categories") && <Link to="/" className="menunavlinks" id="menuhome"><IoIosHome color={'#FFFFF'}/>Home</Link>}
-            { localStorage.getItem("userToken")!=null && <Link to="/user" className="menunavlinks" id="menuUser">User Profile</Link>}
+            {(window.location.pathname != "/") && <Link to="/" className="menunavlinks" id="menuhome"><IoIosHome color={'#FFFFF'}/>Home</Link>}
+            {(window.location.pathname != "/categories") && <Link to="/categories" className="menunavlinks" id="menucategories"><IoIosList color={'#FFFFF'}/>Categories</Link>}      
+            { localStorage.getItem("userToken")!=null && (window.location.pathname != "/userprofile") && <Link to="/userprofile" className="menunavlinks" id="menuUser">User Profile</Link>}
             {localStorage.getItem("userToken")==null && <Link to="/login" className="menunavlinks" id="menulogin">Login</Link>}
         </div>
         }
