@@ -5,10 +5,12 @@ import { useEffect } from "react"
 import { useState } from "react"
 import { Suspense, lazy } from 'react';
 const DivCatContainer = lazy(() => import("../Components/Cards/DivCatContainer"));
+import Loader from "../Components/Util/Loader";
 
 export default function Categories() {
 
     let [genreNameList, setGenreNameList] = useState([])
+    let [loading, setLoading] = useState(true)
 
     useEffect(() => {
         async function getGenres() {
@@ -21,10 +23,16 @@ export default function Categories() {
                 setGenreNameList(jsonResponse)
             } catch (error) {
                 console.log(error.message)
+            } finally{
+                setLoading(false)
             }
         }
         getGenres()
     }, [])
+
+    if (loading) {
+    return <Loader />;
+  }
 
     return (
         <>

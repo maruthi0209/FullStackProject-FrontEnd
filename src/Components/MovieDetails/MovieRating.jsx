@@ -1,5 +1,5 @@
 import { IoIosStarOutline } from "react-icons/io";
-import PdfButton from "../JSPDF";
+import PdfButton from "../Util/JSPDF";
 
 export default function MovieRating({movieAverageRating, favorited}) {
 

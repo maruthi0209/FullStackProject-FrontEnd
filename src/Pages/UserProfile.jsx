@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
-import decodeToken from '../Components/GetUserIdFromEmail2';
+import decodeToken from '../Components/Util/GetUserIdFromEmail2';
 import Header from "../Components/HeaderAndFooter/Header"
 import Footer from "../Components/HeaderAndFooter/Footer2"
 import UserInfo from "../Components/UserProfile/UserInfo";

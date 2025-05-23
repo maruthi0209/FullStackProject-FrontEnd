@@ -7,9 +7,24 @@ const FanFavorites = lazy(() => import("../Components/FanFavorites/FanFavorites"
 const UpcomingReleases = lazy(() => import("../Components/UpcomingReleases/UpcomingReleases"));
 const TopRated = lazy(() => import("../Components/TopRated/TopRated"));
 const Footer = lazy(() => import("../Components/HeaderAndFooter/Footer"))
+import Loader from "../Components/Util/Loader";
+import { useState, useEffect } from "react";
 
 
 export default function HomePage() {
+
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 3000);
+    }, []);
+
+    if (loading) {
+        return <Loader />;
+    }
+
     return (
         <>
         

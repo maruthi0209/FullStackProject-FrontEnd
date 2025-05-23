@@ -9,11 +9,13 @@ import { Suspense, lazy } from 'react';
 // import MovieReviews from "../Components/MovieDetails/MovieReviews"
 const MovieCast = lazy(() => import("../Components/MovieDetails/MovieCast")) 
 const MovieReviews = lazy(() => import("../Components/MovieDetails/MovieReviews"))
+import Loader from "../Components/Util/Loader"
 
 export default function MovieDetails() {
 
     const { id } = useParams();
     let [movieDetails, setMovieDetails] = useState({})
+    let [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function getMovieDetails(id) {
@@ -27,10 +29,17 @@ export default function MovieDetails() {
             } catch (error) {
                 console.log(error.message)
             }
+            finally {
+                setLoading(false);
+            }
         }
         getMovieDetails(id);
 
     }, [id])
+
+    if (loading) {
+    return <Loader />;
+    }
 
     return (
         <>
