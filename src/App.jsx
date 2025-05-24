@@ -11,10 +11,17 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import MovieDetails from './Pages/MovieDetails'
 import SearchResults from './Components/HeaderAndFooter/SearchResult'
+import { ThemeProvider } from './Components/Util/ThemeContext';
 
 function App() {
   return (
     <>
+    <ThemeProvider>
+      <div className="app" style={{
+        backgroundColor: 'var(--bg-primary)',
+        color: 'var(--text-primary)',
+        minHeight: '100vh'
+      }}>
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/login' element={<LoginPage/>} />
@@ -28,6 +35,8 @@ function App() {
         <Route path='*' element={<PageNotFound />} />
       </Routes>
       <ToastContainer position="top-center" autoClose={3000} />
+      </div>
+    </ThemeProvider>
     </>
   )
 }

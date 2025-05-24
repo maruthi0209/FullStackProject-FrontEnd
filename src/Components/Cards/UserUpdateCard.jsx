@@ -63,7 +63,7 @@ export default function UserUpdateCard({userInfo, userEmails}) {
     // https://stackoverflow.com/questions/30516391/html-input-already-filled-in-text
     return (
         <>
-            <Card className='m-auto my-2 w-100 m-auto'>
+            <Card className='m-auto my-2 w-100 m-auto' style={{backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)"}}>
                 <Card.Body className='d-flex flex-row'>
                 <Form action={handleUserUpdate}>
                     <Form.Group className="mb-3" controlId="formUserName">

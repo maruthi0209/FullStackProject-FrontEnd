@@ -1,5 +1,5 @@
 import Header from "../Components/HeaderAndFooter/Header"
-import Footer from "../Components/HeaderAndFooter/Footer"
+import Footer from "../Components/HeaderAndFooter/Footer2"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import MovieMedia from "../Components/MovieMedia/MovieMedia"

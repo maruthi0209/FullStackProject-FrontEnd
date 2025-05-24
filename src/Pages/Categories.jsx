@@ -1,5 +1,5 @@
 import Header from "../Components/HeaderAndFooter/Header"
-import Footer from "../Components/HeaderAndFooter/Footer"
+import Footer from "../Components/HeaderAndFooter/Footer2"
 import Accordion from 'react-bootstrap/Accordion';
 import { useEffect } from "react"
 import { useState } from "react"
@@ -44,7 +44,7 @@ export default function Categories() {
                         return (
                             <>  
                                 
-                                    <Accordion.Item eventKey={index} id={index} className="my-4 mx-auto w-75">
+                                    <Accordion.Item eventKey={index} id={index} className="my-4 mx-auto w-75" style={{backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)"}}>
                                     <Accordion.Header className="space-mono-bold text-center">{`${genre.genreName}`}</Accordion.Header>
                                     <Accordion.Body className="space-mono-regular p-2 m-2" style={{fontSize : "0.75rem"}}>
                                         <Suspense fallback={<div>Loading Component...</div>}>

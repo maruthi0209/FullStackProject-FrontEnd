@@ -8,7 +8,7 @@ export default function MovieInnerDetails({movieGenre, movieDirector, movieWrite
 
     return (
         <>
-        <Card className="container m-auto p-2 my-2 d-flex flex-column space-mono-regular" style={{width : "80%"}}>
+        <Card className="container m-auto p-2 my-2 d-flex flex-column space-mono-regular" style={{width : "80%" , backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)"}}>
             <Card.Body>
                 {/* <Card.Text> */}
                     <Stack gap={1} className="space-mono-regular">

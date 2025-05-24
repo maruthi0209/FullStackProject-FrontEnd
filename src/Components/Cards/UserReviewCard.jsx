@@ -6,7 +6,7 @@ export default function UserReviewCard({element, index}) {
 
     return (
         <>
-            <Card className='m-auto my-2 w-100' key={index} id={element._id}>
+            <Card className='m-auto my-2 w-100' style={{backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)"}} key={index} id={element._id}>
                 <Card.Body className='d-flex flex-row'>
                     <UserCard userId={element.userId}/>
                     <ReviewCard userReview={element}/>

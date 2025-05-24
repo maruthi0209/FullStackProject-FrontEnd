@@ -11,7 +11,7 @@ export default function DivInnerCard({displayValue}) {
     const imageUrl = `${displayValue.moviePoster}`;
     return (
         <>
-            <Card className='innerCard' onClick={handleClick} style={{cursor: "pointer", overflow: "hidden"}}>
+            <Card className='innerCard' onClick={handleClick} style={{cursor: "pointer", overflow: "hidden", backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)"}}>
                 <Card.Img 
                     variant="top" 
                     src={imageUrl} 

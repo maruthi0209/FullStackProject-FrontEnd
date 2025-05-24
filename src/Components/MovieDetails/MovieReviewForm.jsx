@@ -87,7 +87,7 @@ export default function MovieReviewForm() {
 
     return (
         <>
-            {token &&<Card className='m-auto my-2 w-100 m-auto'>
+            {token &&<Card className='m-auto my-2 w-100 m-auto' style={{ backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)"}}>
                 <Card.Body className='d-flex flex-row'>
                     {/* <Card.Title>Write your review </Card.Title><br /> */}
                     <Form className='w-100 caveat-regular' style={{fontSize : "1rem"}} action={handleReviewSubmit}>

@@ -61,7 +61,7 @@ export default function UserInfo({userId}) {
 
     return (
         <>
-            {userInfo && <Card className="container m-auto p-2 my-2" style={{width : "80%"}}>
+            {userInfo && <Card className="container m-auto p-2 my-2" style={{width : "80%", backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)"}}>
                 <Card.Body>
                     <Card.Title>{userInfo.userName}</Card.Title>
                     <Card.Text> Email Address : {userInfo.userEmail} </Card.Text>

@@ -43,7 +43,7 @@ export default function UserRelatedReviews({userId}) {
 
     return (
         <>
-            {userReview && <div className="container m-auto p-2 my-2" style={{width : "80%"}}>
+            {userReview && <div className="container m-auto p-2 my-2" style={{width : "80%", backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)"}}>
                 {userReview && currentItems.map((element, index) => {
                 return (
                         <div className='reviewCard my-2 ' key={index}>

@@ -5,11 +5,13 @@ import Header from "../Components/HeaderAndFooter/Header"
 import Footer from "../Components/HeaderAndFooter/Footer2"
 import UserInfo from "../Components/UserProfile/UserInfo";
 import UserRelatedReviews from "../Components/UserProfile/UserRelatedReviews";
+import Loader from "../Components/Util/Loader"
 
 export default function UserDetails() {
 
     let navigate = useNavigate()
     const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
 
     // let [err, setErr] = useState(false)
     // function handleLogOut() {
@@ -45,6 +47,17 @@ export default function UserDetails() {
     isMounted = false; // Cleanup function
     };
     }, [])
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 3000);
+    }, []);
+
+    if (loading) {
+        return <Loader />;
+    }
+
     
     return (
         <>

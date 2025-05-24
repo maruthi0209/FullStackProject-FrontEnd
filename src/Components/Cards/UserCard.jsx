@@ -24,7 +24,7 @@ export default function UserCard({userId}) {
 
     return (
         <>
-            <Card className=" m-auto border-light" style={{width : "20%"}}>
+            <Card className=" m-auto border-light" style={{width : "20%", backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)"}}>
                 <Card.Img variant="top" src={userImage} style={{display : "block", width : "50%", margin : "auto"}}/>
                 <Card.Body>
                     <Card.Text className="text-center caveat-regular" style={{fontSize : "1rem"}}>{username.userName}</Card.Text>

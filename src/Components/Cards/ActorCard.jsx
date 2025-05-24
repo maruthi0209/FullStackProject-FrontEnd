@@ -23,7 +23,7 @@ export default function ActorCard({actorId}) {
     const imageURL = actorDetails.actorPhoto;
     return (
         <>
-            <Card className='m-auto mx-3 border border-light' style={{width : "20%" ,display : "inline-block", fontSize : "0.75rem"}}>
+            <Card className='m-auto mx-3 border' style={{width : "20%" ,display : "inline-block", fontSize : "0.75rem", backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)"}}>
                 <Card.Img variant="top" src={imageURL} alt='Actor' style={{display : "block", width : "75%"}} className='m-auto'/>
                 <Card.Body className='text-center'>
                     <Card.Text >

@@ -37,7 +37,7 @@ export default function MovieReviews({movieId}) {
 
     return (
         <>
-            <Card className="container rounded m-auto my-2 space-mono-regular" style={{width : "80%"}}>
+            <Card className="container rounded m-auto my-2 space-mono-regular" style={{width : "80%", backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)"}}>
                 <Card.Body>
                     <div className='reviewForm w-100 my-2 mx-auto'>
                         <MovieReviewForm />

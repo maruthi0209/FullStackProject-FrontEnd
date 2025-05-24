@@ -1,11 +1,17 @@
 import { FaLinkedin, FaGithub, FaFacebook, FaInstagram } from 'react-icons/fa';
-import logo from "../../assets/ScreenScore_light.png"
+// import logo from "../../assets/ScreenScore_light.png"
+import screenscorelogolight from "../../assets/ScreenScore_light.png"
+import screenscorelogodark from "../../assets/ScreenScore_dark2.png"
+import { ThemeContext } from "../Util/ThemeContext";
+import { useContext} from "react"
 
 function AboutScreenScore() {
+  const { theme } = useContext(ThemeContext);
     return (
     <div className="about-me">
         
-      <h3 className="footer-heading"><img src={logo} alt="Logo" className='footer-image' />&emsp;ScreenScore</h3>
+      {/* <h3 className="footer-heading"><img src={logo} alt="Logo" className='footer-image' />&emsp;ScreenScore</h3> */}
+      <h3 className="footer-heading"><img src={theme==='light'? screenscorelogolight : screenscorelogodark} alt="Logo" className='footer-image' />&emsp;ScreenScore</h3>
       <p className="footer-text">
         ScreenScore is your go-to destination for honest, in-depth movie reviews and ratings. Whether you're a casual viewer or a hardcore cinephile, our platform offers fresh perspectives on the latest blockbusters, hidden indie gems, and timeless classics.
       </p>

@@ -1,13 +1,18 @@
-import { useState, useEffect } from "react"
-import screenscorelogo from "../../assets/ScreenScore_light.png"
+import { useState, useEffect, useContext} from "react"
+// import screenscorelogo from "../../assets/ScreenScore_light.png"
+import screenscorelogolight from "../../assets/ScreenScore_light.png"
+import screenscorelogodark from "../../assets/ScreenScore_dark2.png"
 import { IoMdSearch, IoMdMenu , IoIosList , IoIosHome  } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom"
 import { useDebounce } from "./Debouncing";
+import ThemeToggle from '../Util/ThemeToggle';
+import { ThemeContext } from "../Util/ThemeContext";
 
 function Logo() {
+    const { theme } = useContext(ThemeContext);
     return (
         <div className="logo" id="logo">
-            <Link to="/" className="logo" id="logoLink"><img src={screenscorelogo} alt="ScreenScore Logo" /></Link> 
+            <Link to="/" className="logo" id="logoLink"><img src={theme==='light'? screenscorelogolight : screenscorelogodark} alt="ScreenScore Logo" /></Link> 
         </div>
     ) 
 }
@@ -141,6 +146,7 @@ export default function Header() {
         <div className="header space-mono-regular m-auto">
             <Logo />
             <SearchBar />
+            <ThemeToggle />
             <NavBar />
             <MenuNavBarLabel />
             

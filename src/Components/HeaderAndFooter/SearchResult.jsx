@@ -49,11 +49,11 @@ export default function SearchResults() {
         <button onClick={() => navigate(-1)} className="back-button">
           <IoIosArrowBack /> Back
         </button>
-        <h2>
+        {/* <h2>
           {query 
             ? `Search Results for "${query}"` 
             : 'No search query provided'}
-        </h2>
+        </h2> */}
       </div>
 
       {(results && results.length > 0 ) ? (
