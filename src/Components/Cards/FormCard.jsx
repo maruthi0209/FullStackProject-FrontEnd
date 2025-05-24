@@ -61,7 +61,7 @@ export default function FormCard({movieId, userId, update, reviewId, onUpdate}) 
 
     return (
         <>
-        <Card className='m-auto my-2 w-100 m-auto'>
+        <Card className='m-auto my-2 w-100 m-auto' style={{backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)"}}>
             <Card.Body className='d-flex flex-row'>
                 <Form className='w-100 caveat-regular' style={{fontSize : "1rem"}} action={handleReviewSubmit}>
                     <Form.Group className="mb-3" controlId="reviewTitle" >

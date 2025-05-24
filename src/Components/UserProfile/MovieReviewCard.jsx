@@ -64,7 +64,7 @@ export default function MovieReviewCard({element, index, onUpdate}) {
                 </Card.Body>
             </Card>
             { updateClicked &&
-                <Card >
+                <Card style={{backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)"}}>
                     <Card.Body>
                             <FormCard movieId={element.movieId} userId={element.userId} update={true} reviewId={element._id} onUpdate={onUpdate}/>
                     </Card.Body>
