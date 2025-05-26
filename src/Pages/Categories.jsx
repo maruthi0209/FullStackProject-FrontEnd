@@ -43,7 +43,7 @@ export default function Categories() {
                     genreNameList.map((genre, index) => {         
                         return (
                             <>  
-                                <Accordion.Item eventKey={index} id={index} className="my-3 mx-auto" style={{width : "80%", backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)", fontSize:"1rem"}}>
+                                <Accordion.Item key={index} id={index} className="my-3 mx-auto" style={{width : "80%", backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)", fontSize:"1rem"}}>
                                 <Accordion.Header className="space-mono-bold text-center">{`${genre.genreName}`}</Accordion.Header>
                                 <Accordion.Body className="space-mono-regular m-auto" style={{fontSize : "0.75rem"}}>
                                     <Suspense fallback={<div>Loading Component...</div>}>

@@ -5,7 +5,7 @@ export default function MovieCast({movieActors}) {
 
     return (
         <>
-            <Card className="container rounded m-auto p-2 my-2 space-mono-regular" style={{width : "80%", backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)"}}>
+            <Card className="movieDetails container rounded m-auto p-2 my-2 space-mono-regular" style={{backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)"}}>
             <Card.Title className='py-2'>List of Actors</Card.Title>
             <Card.Body>
                 {/* <Card.Text> */}

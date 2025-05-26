@@ -23,7 +23,7 @@ export default function MovieCard({id}) {
 
     return (
         <>
-            <Card className=" m-auto border-light" style={{width : "20%"}}>
+            <Card className="MovieCard m-auto border-light">
                 <Card.Img variant="top" src={movieInfo.moviePoster} style={{display : "block", width : "50%", margin : "auto"}}/>
                 <Card.Body>
                     <Card.Text className="text-center caveat-regular" style={{fontSize : "1rem"}}>{movieInfo.movieName}</Card.Text>

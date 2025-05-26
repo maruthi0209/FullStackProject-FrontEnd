@@ -6,6 +6,7 @@ import MovieReviewForm from './MovieReviewForm';
 
 export default function MovieReviews({movieId}) {
     
+     const [matches, setMatches] = useState(window.matchMedia("(max-width: 768px)").matches);
     let [movieReviews, setMovieReviews] = useState([])
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(5); // Adjust as needed
@@ -35,9 +36,16 @@ export default function MovieReviews({movieId}) {
         getMovieReviews(movieId)
     }, [movieId])
 
+    useEffect(() => {
+        window.matchMedia("(max-width: 768px)").addEventListener('change', e => setMatches(e.matches));
+        return () => {
+            window.matchMedia("(max-width: 768px)").removeEventListener('change', e => setMatches(e.matches));
+        };
+    }, []);
+
     return (
         <>
-            <Card className="container rounded m-auto my-2 space-mono-regular" style={{width : "80%", backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)"}}>
+            <Card className="movieDetails container rounded m-auto my-2 space-mono-regular" style={{backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)"}}>
                 <Card.Body>
                     <div className='reviewForm w-100 my-2 mx-auto'>
                         <MovieReviewForm />
@@ -54,7 +62,7 @@ export default function MovieReviews({movieId}) {
                             )
                         })
                     }
-                        <div className="pagination" style={{display: "flex", gap: "8px", marginTop : "20px"}}>
+                        <div className="pagination" style={{display: "flex", marginTop : "20px"}}>
                             <button
                             onClick={() => paginate(currentPage - 1)}
                             disabled={currentPage === 1}

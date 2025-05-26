@@ -10,6 +10,7 @@ function SignUpContainer() {
 
     let navigate = useNavigate();
 
+    const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
     const [userEmails, setUserEmails] = useState([])
     let [validEmail, setValidEmail] = useState(true)
     let [enteredPass, setEnteredPass] = useState(null)
@@ -33,6 +34,14 @@ function SignUpContainer() {
         getAllUsers()
 
     }, [])
+
+    useEffect(() => {
+    const handleResize = () => {
+        setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+}, []);
 
     async function postData(inputObj) {
         const loadingToast = toast.loading("Signing you up...");
@@ -154,44 +163,163 @@ function SignUpContainer() {
 
     return (
         <>
-        <div className="signUpDiv w-25 m-auto h-50 bg-white p-4 rounded" id="signUpDiv" 
-                style={{position : "relative", top : "150px", textAlign : "center"}}>
-            <form action={handleSignUp} className="">
+            <div 
+                className="signUpDiv bg-white p-4 rounded" 
+                id="signUpDiv"
+                style={{
+                    backgroundImage: isMobile ? 'url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba")' : 'https://wallpapercat.com/w/full/3/a/f/1380744-1920x1080-desktop-full-hd-film-wallpaper-photo.jpg',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    backgroundAttachment: 'fixed',
+                    position: "relative",
+                    top: "0px",
+                    textAlign: "center",
+                    width: "90%", // Default width for mobile
+                    maxWidth: "500px", // Max width for larger screens
+                    margin: "0 auto", // Center the div
+                    // Responsive padding
+                    padding: "1.5rem",
+                    // Responsive margins
+                    marginTop: "2rem",
+                    marginBottom: "2rem",
+                    // Box shadow for better visibility
+                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)" 
+                }}
+            >
+                {/* Internal style tag for responsive breakpoints */}
+                <style>
+                    {`
+                        @media (min-width: 425px) {
+                            #signUpDiv {
+                                width: 80%;
+                            }
+                        }
+                        @media (min-width: 768px) {
+                            #signUpDiv {
+                                width: 50%;
+                            }
+                        }
+                        @media (min-width: 1024px) {
+                            #signUpDiv {
+                                width: 35%;
+                            }
+                        }
+                        .form-control {
+                            width: 100%;
+                            margin-bottom: 1rem;
+                        }
+                        .btn {
+                            width: 100%;
+                            margin-bottom: 0.5rem;
+                        }
+                        @media (min-width: 425px) {
+                            .btn {
+                                width: 75%;
+                            }
+                        }
+                    `}
+                </style>
 
-                <div className="form-floating mb-2">
-                    <input type="text" name="userName" id="floatingInput" required className="form-control" placeholder="Enter your Username"/>
-                <label htmlFor="floatingInput">Enter your Username</label>
-                </div>
+                <form action={handleSignUp}>
+                    <div className="form-floating mb-2">
+                        <input 
+                            type="text" 
+                            name="userName" 
+                            id="floatingInput" 
+                            required 
+                            className="form-control" 
+                            placeholder="Enter your Username"
+                            style={{ minHeight: "3rem" }}
+                        />
+                        <label htmlFor="floatingInput">Enter your Username</label>
+                    </div>
 
-                <div className="form-floating mb-2">
-                    <input type="email" onInput={handleEmailInput} id="floatingEmail" required name="userEmail" className="form-control"/>
-                <label htmlFor="floatingEmail">Enter your email</label>
-                    {validEmail == false && <p className="p-2 text-warning mb-3">Please enter a valid email format</p>}
-                    {userExists && <p className="p-2 text-danger">User already exists!</p>}
-                <p className="text-muted">We'll never share your email with anyone else.</p>
-                </div>
-                
-                <div className="form-floating mb-2">
-                    <input type="password" placeholder="Enter your Password" id="floatingPassword" onInput={handlePasswordInput} required name="userPassword" className="form-control"/>
-                    <label htmlFor="floatingPassword">Enter your Password</label>
-                    {validPassword==false && <p>Enter a password that is 8 to 16 characters long, contains only lowercase letters, uppercase letters, numbers, no special characters or spaces.</p>}
-                </div>
-                
-                <div className="form-floating mb-2">
-                    <input type="password" placeholder="Confirm your Password" onInput={handle2PasswordInput} required className="form-control" id="floatPass2"/>
-                    <label htmlFor="floatingPass2">Confirm your Password</label>
-                    {valid2Password==false && <p className="p-2 text-danger">Passwords do not match</p>}
-                </div>
-                <button className="btn btn-primary" type="submit">Submit</button>
-                <br />
-                <Link to="/login" className="btn w-75 border-secondary my-2" >Go To Login</Link>
+                    <div className="form-floating mb-2">
+                        <input 
+                            type="email" 
+                            onInput={handleEmailInput} 
+                            id="floatingEmail" 
+                            required 
+                            name="userEmail" 
+                            className="form-control"
+                            style={{ minHeight: "3rem" }}
+                        />
+                        <label htmlFor="floatingEmail">Enter your email</label>
+                        {validEmail == false && <p className="p-2 text-warning mb-3" style={{ fontSize: "0.9rem" }}>Please enter a valid email format</p>}
+                        {userExists && <p className="p-2 text-danger" style={{ fontSize: "0.9rem" }}>User already exists!</p>}
+                        <p className="text-muted" style={{ fontSize: "0.8rem" }}>We'll never share your email with anyone else.</p>
+                    </div>
+                    
+                    <div className="form-floating mb-2">
+                        <input 
+                            type="password" 
+                            placeholder="Enter your Password" 
+                            id="floatingPassword" 
+                            onInput={handlePasswordInput} 
+                            required 
+                            name="userPassword" 
+                            className="form-control"
+                            style={{ minHeight: "3rem" }}
+                        />
+                        <label htmlFor="floatingPassword">Enter your Password</label>
+                        {validPassword==false && <p style={{ fontSize: "0.9rem" }}>Enter a password that is 8 to 16 characters long, contains only lowercase letters, uppercase letters, numbers, no special characters or spaces.</p>}
+                    </div>
+                    
+                    <div className="form-floating mb-2">
+                        <input 
+                            type="password" 
+                            placeholder="Confirm your Password" 
+                            onInput={handle2PasswordInput} 
+                            required 
+                            className="form-control" 
+                            id="floatPass2"
+                            style={{ minHeight: "3rem" }}
+                        />
+                        <label htmlFor="floatingPass2">Confirm your Password</label>
+                        {valid2Password==false && <p className="p-2 text-danger" style={{ fontSize: "0.9rem" }}>Passwords do not match</p>}
+                    </div>
+                    
+                    <button 
+                        className="btn btn-primary" 
+                        type="submit"
+                        style={{ 
+                            padding: "0.75rem",
+                            fontSize: "1rem",
+                            fontWeight: "500"
+                        }}
+                    >
+                        Submit
+                    </button>
+                    
+                    <br />
+                    
+                    <Link 
+                        to="/login" 
+                        className="btn border-secondary my-2"
+                        style={{ 
+                            padding: "0.75rem",
+                            fontSize: "1rem",
+                            display: "inline-block"
+                        }}
+                    >
+                        Go To Login
+                    </Link>
+                </form> 
 
-            </form> 
+                <button 
+                    className="btn border-secondary my-2"
+                    onClick={handleGoogleClick}
+                    style={{ 
+                        padding: "0.75rem",
+                        fontSize: "1rem",
+                        display: "inline-block"
+                    }}
+                >
+                    Sign Up with Google
+                </button>
 
-            <button className="btn w-75 border-secondary my-2" onClick={handleGoogleClick}>Sign Up with Google</button>
-
-            <SkipToMain />
-        </div>
+                <SkipToMain />
+            </div>
         </>
     )
 }

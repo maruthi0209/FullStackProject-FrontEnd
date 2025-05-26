@@ -5,7 +5,7 @@ export default function MovieName({movieName, movieReleaseYear, movieRunningTime
 
     return (
         <>
-            <Card style={{width : "85%", margin : "auto", backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)", border : "var(--bg-secondary)"}} className='outerCard my-2'>
+            <Card id='movieName' style={{width : "80%", margin : "auto", backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)", border : "var(--bg-secondary)"}}>
                 <Card.Body>
                     <Card.Title className='space-mono-bold'>{movieName}</Card.Title>
                     <Card.Text>Year : {movieReleaseYear}</Card.Text>

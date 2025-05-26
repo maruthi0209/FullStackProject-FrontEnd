@@ -335,6 +335,34 @@
   cursor: not-allowed;
 }
 
+.theme-coloring {
+  background-color: var(--bg-secondary);
+  color : var(--text-primary);
+}
+.movieDetails, .UserReviewCard {
+  width: 80%;
+  flex-direction: row;
+  background-color: var(--bg-secondary);
+  color : var(--text-primary);
+  font-size: 1rem;
+}
+.outerCard {
+  margin : 0.5rem 0;
+}
+#ActorCard, #UserCard {
+  width: 20%;
+  font-size: 1rem;
+}
+#ReviewCard {
+    width: 80%;
+    font-size: 1rem;
+  }
+.pagination {
+  gap: "8px"
+}
+.signUpDiv  {
+  top : 150px;
+}
 /* CSS code for hot trending topic section ends here */
 
 
@@ -462,11 +490,30 @@
     width: 7px;
   }
   .menunavlinks {
-    font-size: 0.75rem;
+    font-size: 0.60rem;
   }
 
   #hotTrending iframe{
     height: 270px;
+  }
+
+  .movieDetails , .UserReviewCard, .MovieReviewCard{
+    flex-direction: column;
+    font-size: 0.75rem;
+  }
+  .moviePoster>iframe{
+    height: 270px;
+  }
+  .outerCard {
+    text-align: center;
+  }
+  #ActorCard, #UserCard {
+    width: 35%;
+    font-size: 0.5rem;
+  }
+  #ReviewCard {
+    width: 100%;
+    font-size: 0.5rem;
   }
 
   .footer-heading {
@@ -574,6 +621,33 @@
     height: 180px;
   }
 
+  #movieBanner {
+    flex-direction: column;
+    font-size: 0.75rem;
+  }
+  .outerCard {
+    text-align: center;
+  }
+
+  .movieDetails , .UserReviewCard, .MovieReviewCard{
+    flex-direction: column;
+    font-size: 0.75rem;
+  }
+  .moviePoster>iframe{
+    height: 270px;
+  }
+  .outerCard {
+    text-align: center;
+  }
+  #ActorCard, #UserCard {
+    width: 35%;
+    font-size: 0.5rem;
+  }
+  #ReviewCard {
+    width: 100%;
+    font-size: 0.5rem;
+  }
+
   .footer-heading {
   font-size: 0.75rem;
 }
@@ -678,6 +752,33 @@
 
   #hotTrending iframe{
     height: 180px;
+  }
+
+  #movieBanner {
+    flex-direction: column;
+    font-size: 0.75rem;
+  }
+  .outerCard {
+    text-align: center;
+  }
+
+   .movieDetails , .UserReviewCard, .MovieReviewCard{
+    flex-direction: column;
+    font-size: 0.75rem;
+  }
+  .moviePoster>iframe{
+    height: 270px;
+  }
+  .outerCard {
+    text-align: center;
+  }
+  #ActorCard, #UserCard {
+    width: 40%;
+    font-size: 0.5rem;
+  }
+  #ReviewCard {
+    width: 100%;
+    font-size: 0.5rem;
   }
 
   .footer-heading {

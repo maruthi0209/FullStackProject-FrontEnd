@@ -6,8 +6,7 @@ export default function MovieMedia({moviePoster, movieTrailer}) {
     // console.log(moviePoster.moviePoster, movieTrailer.movieTrailer);
     return (
         <>
-            <div className="container d-flex flex-row justify-content-center align-items-center flex-wrap m-auto m-2" 
-                style={{width : "80%"}}>
+            <div id="movieMedia" className="movieDetails container d-flex justify-content-center align-items-center m-auto m-2" >
                 <MoviePoster moviePoster={moviePoster} />
                 <MovieTrailer movieTrailer={movieTrailer} />
             </div>

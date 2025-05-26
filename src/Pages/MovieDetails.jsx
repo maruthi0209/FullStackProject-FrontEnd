@@ -44,7 +44,7 @@ export default function MovieDetails() {
     return (
         <>
             <Header />
-            <div className="movie-details container-fluid p-2 m-auto" id="pdfContent" >
+            <div className="movie-details container-fluid m-auto" id="pdfContent" >
                 <MovieBanner movieName={movieDetails.movieName} movieReleaseYear={movieDetails.movieReleaseYear} 
                     movieRunningTimeInMinutes={movieDetails.movieRunningTimeInMinutes} movieAverageRating={movieDetails.movieAverageRating} 
                     favorited={movieDetails.favorited}/>

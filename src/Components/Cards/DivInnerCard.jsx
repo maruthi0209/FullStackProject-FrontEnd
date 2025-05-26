@@ -22,10 +22,10 @@ export default function DivInnerCard({ displayValue }) {
                             }}
                         />
                     <Card.Text style={{ fontSize: "0.75rem" }}>
-                        <div className='w-100 my-2 text-center'>
+                        {/* <div className='w-100 my-2 text-center'> */}
                             <b>{displayValue.movieName}</b>({displayValue.movieReleaseYear})<br/>
                             Director : {displayValue.movieDirector}
-                        </div>
+                        {/* </div> */}
                     </Card.Text>
                 </Card.Body>
             </Card>

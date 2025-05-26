@@ -52,7 +52,7 @@ export default function UserRelatedReviews({userId}) {
                     )
                 })
                 }
-                <div className="pagination" style={{display: "flex", gap: "8px", marginTop : "20px"}}>
+                <div className="pagination" style={{display: "flex", marginTop : "20px"}}>
                     <button
                     onClick={() => paginate(currentPage - 1)}
                     disabled={currentPage === 1}
