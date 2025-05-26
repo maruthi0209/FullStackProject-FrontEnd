@@ -9,12 +9,12 @@ export default function DivContainer({showlist}) {
     return (
         <>
         <Suspense fallback={<div>Loading Component...</div>}>
-            <Container fluid className='my-2 mx-auto'>
-                <Row>
+            <Container fluid >
+                <Row className='m-auto'>
                     {
                     showlist?.map((element, index) => {
                         return (
-                            <Col key={index} className='m-auto'>
+                            <Col key={index} className='my-2 m-auto'>
                             < DivInnerCard displayValue={element}/>
                             </Col>
                         )

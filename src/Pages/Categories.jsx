@@ -43,20 +43,18 @@ export default function Categories() {
                     genreNameList.map((genre, index) => {         
                         return (
                             <>  
-                                
-                                    <Accordion.Item eventKey={index} id={index} className="my-4 mx-auto w-75" style={{backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)"}}>
-                                    <Accordion.Header className="space-mono-bold text-center">{`${genre.genreName}`}</Accordion.Header>
-                                    <Accordion.Body className="space-mono-regular p-2 m-2" style={{fontSize : "0.75rem"}}>
-                                        <Suspense fallback={<div>Loading Component...</div>}>
-                                        {`${genre.genreDescription}`}
-                                        <div className="accordion-body-text m-2 p-3 ">
-                                            <DivCatContainer genreName = {genre.genreName} />
-                                        </div>
-                                        </Suspense>
-                                    </Accordion.Body>
-                                    </Accordion.Item>
-                            </>
-                            
+                                <Accordion.Item eventKey={index} id={index} className="my-3 mx-auto" style={{width : "80%", backgroundColor : "var(--bg-secondary)", color : "var(--text-primary)", fontSize:"1rem"}}>
+                                <Accordion.Header className="space-mono-bold text-center">{`${genre.genreName}`}</Accordion.Header>
+                                <Accordion.Body className="space-mono-regular m-auto" style={{fontSize : "0.75rem"}}>
+                                    <Suspense fallback={<div>Loading Component...</div>}>
+                                    {`${genre.genreDescription}`}
+                                    {/* <div className="accordion-body-text my-3 m-auto text-center"> */}
+                                        <DivCatContainer genreName = {genre.genreName} />
+                                    {/* </div> */}
+                                    </Suspense>
+                                </Accordion.Body>
+                                </Accordion.Item>
+                            </>    
                         )
                     })
                 }

@@ -40,7 +40,7 @@ function Socials() {
   return (
     <div className="socials">
       <h3 className="footer-heading">Follow Me</h3>
-      <div className="social-icons">
+      <div className="social-icons d-flex flex-row justify-content-center">
         <a 
           target="_blank" 
           rel="noopener noreferrer" 
@@ -94,8 +94,8 @@ function Copyright() {
 
 export default function Footer2() {
   return (
-    <footer className="footer space-mono-regular">
-      <div className="footer-container">
+    <footer className="footer space-mono-regular m-auto mx-2 my-2" style={{backgroundColor : "var(--primary-color)", color : "var(--text-primary)"}}>
+      <div className="footer-container m-auto d-flex flex-row justify-content-between flex-wrap text-center py-1 m-auto" style={{maxWidth : "1200px", gap: "10px"}}>
         <AboutScreenScore />
         <AboutMe />
         <Socials />

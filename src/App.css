@@ -61,44 +61,17 @@
 
 /* CSS code for Header section starts here*/
 
-.header{
-  width: 100%;
-  height: 5%;
-  background-color: var(--primary-color);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
 #logo{
-  width: 6%;
-}
-#logoLink>img{
-  display: block;
-  width: 100%;
+  width: 7%;
 }
 
 .MenuNavBar{
   display: none;
 }
 
-#searchBarDiv{
-  width: 40%;
-  position: relative;
-  display: flex;
-  justify-content: space-evenly;
-}
 #searchBar, #searchButton {
   height: 40px;
   border : none;
-}
-#searchBar {
-  width: 90%;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  border-right: none;
-  padding-left: 15px;
-  border-color: black;
 }
 #searchBar::placeholder {
   text-align: center;
@@ -118,11 +91,6 @@
   border: 1px solid black;
 }
 
-/* .search-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 20px;
-} */
 
 .search-input {
   width: 100%;
@@ -369,47 +337,29 @@
 
 /* CSS code for hot trending topic section ends here */
 
-/*
+
+/* CSS code for Footer section starts here*/
+
 /* Main Footer Styles */
 .footer {
-  background-color: #1a1a1a;
-  color: #ffffff;
-  padding: 20px 0 10px;
-  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
 }
-
 .footer-image{
-  /* display: inline; */
   width: 10%;
 }
-
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 50px;
-}
-
 /* About Me Section */
 .about-me {
   flex: 1;
   min-width: 300px;
 }
-
 /* Socials Section */
 .socials {
   flex: 1;
-  min-width: 200px;
+  min-width: 180px;
 }
-
 .footer-heading {
-  /* color: #ffffff; */
-  color: black;
+  color: var(--text-primary);
   font-size: 1.2rem;
-  margin-bottom: 20px;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -453,42 +403,6 @@
   margin-top: 10px;
   border-top: 1px solid #333;
 }
-
-/* Font Awesome Icons */
-/* @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'); */
-
-
-
-/* CSS code for Footer section starts here*/
-
-.footer {
-  width: 100%;
-  background-color: var(--primary-color);
-  position: relative;
-  bottom: 0%;
-  font-size: 0.8rem;
-}
-#aboutme, #socials, #copyright {
-  width: 100%;
-  color: var(--secondary-color);
-  padding: 10px 30px;
-  text-align: center;
-  text-align-last: center;
-}
-#socials{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-}
-#sociallinks{
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  padding: 10px;
-}
-
 /* CSS code for Footer section ends here*/
 
 /* Media Queries for width from 768px to 1024px */
@@ -512,6 +426,10 @@
 
   #hotTrending iframe{
     height: 360px;
+  }
+
+  .footer-heading {
+  font-size: 0.75rem;
   }
 }
 
@@ -543,14 +461,18 @@
   #navbar svg {
     width: 7px;
   }
-  .navlinks, #aboutme, #socials, #sociallinks, #sociallinks a, #copyright{
-    padding: 5px;
-    font-size: 0.3rem;
+  .menunavlinks {
+    font-size: 0.75rem;
   }
 
   #hotTrending iframe{
     height: 270px;
   }
+
+  .footer-heading {
+  font-size: 0.75rem;
+  }
+  
 }
 
 /* Media Queries for width from 320px to 424px */
@@ -651,6 +573,10 @@
   #hotTrending iframe{
     height: 180px;
   }
+
+  .footer-heading {
+  font-size: 0.75rem;
+}
 }
 
 /* Media Queries for width upto 320px */
@@ -753,6 +679,10 @@
   #hotTrending iframe{
     height: 180px;
   }
+
+  .footer-heading {
+  font-size: 0.75rem;
+}
 }
 
 /* CSS code for loader */
