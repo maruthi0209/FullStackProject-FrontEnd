@@ -588,8 +588,10 @@
   #contentsearchBar {
     background-color: darkgray;
     position: relative;
-    right: 10%;
-    width: 90%;
+    margin: auto;
+    /* right: 10%; */
+    left : 10%;
+    width: 80%;
     border-radius: 10px;
     border-right: none;
     border-color: black;
