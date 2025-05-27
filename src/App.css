@@ -363,6 +363,9 @@
 .signUpDiv  {
   top : 150px;
 }
+#movieRating {
+  text-align: end;
+}
 /* CSS code for hot trending topic section ends here */
 
 
@@ -515,6 +518,33 @@
     width: 100%;
     font-size: 0.5rem;
   }
+  #navbar{
+    display: none;
+  }
+  #MenuNavBarLabel{
+    display: block;
+    width: 10%;
+  }
+  #MenuNavBarContents{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    /* background-color: var(--tertiary-color); */
+    background-color: darkgray;
+    width: 170px;
+    height: 170px;
+    position: absolute;
+    top: 60px;
+    right: 0px;
+    z-index: 2;
+  }
+  .menunavlinks, #aboutme, #socials, #sociallinks, #copyright{
+    font-size: 1rem;
+    text-decoration: none;
+    color: var(--secondary-color);
+  }
 
   .footer-heading {
   font-size: 0.75rem;
@@ -556,12 +586,14 @@
     border : none;
   }
   #contentsearchBar {
+    background-color: darkgray;
+    position: relative;
+    right: 10%;
     width: 90%;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-radius: 10px;
     border-right: none;
-    padding-left: 15px;
     border-color: black;
+    z-index: 2;
   }
   #contentsearchBar::placeholder {
     text-align: center;
@@ -597,15 +629,17 @@
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
-    background-color: var(--tertiary-color);
-    width: 70px;
-    height: 70px;
+    /* background-color: var(--tertiary-color); */
+    background-color: darkgray;
+    width: 170px;
+    height: 170px;
     position: absolute;
     top: 60px;
     right: 0px;
+    z-index: 2;
   }
   .menunavlinks, #aboutme, #socials, #sociallinks, #copyright{
-    font-size: 0.3rem;
+    font-size: 1rem;
     text-decoration: none;
     color: var(--secondary-color);
   }
@@ -686,12 +720,14 @@
     border : none;
   }
   #contentsearchBar {
+    background-color: darkgray;
+    position: relative;
+    right: 10%;
     width: 90%;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
+    border-radius: 10px;
     border-right: none;
-    padding-left: 15px;
     border-color: black;
+    z-index: 2;
   }
   #contentsearchBar::placeholder {
     text-align: center;
@@ -730,11 +766,12 @@
     align-items: center;
     text-align: center;
     background-color: var(--tertiary-color);
-    width: 70px;
-    height: 70px;
+    width: 170px;
+    height: 170px;
     position: absolute;
     top: 60px;
     right: 0px;
+    z-index: 2;
   }
   .menunavlinks, #aboutme, #socials, #sociallinks, #copyright{
     font-size: 0.3rem;

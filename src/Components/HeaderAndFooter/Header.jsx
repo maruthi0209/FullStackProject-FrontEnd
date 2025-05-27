@@ -18,7 +18,7 @@ function Logo() {
 }
 
 function SearchBar() {
-    const [matches, setMatches] = useState(window.matchMedia("(max-width: 424px)").matches);
+    const [matches, setMatches] = useState(window.matchMedia("(max-width: 524px)").matches);
     const [menusearchbuttonclicked, setmenusearchbuttonclicked] = useState(false);
     const [searchQuery, setSearchQuery] = useState("");
     const debouncedSearchQuery = useDebounce(searchQuery, 500);
@@ -26,9 +26,9 @@ function SearchBar() {
     const [isSearching, setIsSearching] = useState(false);
 
     useEffect(() => {
-        window.matchMedia("(max-width: 424px)").addEventListener('change', e => setMatches(e.matches));
+        window.matchMedia("(max-width: 524px)").addEventListener('change', e => setMatches(e.matches));
         return () => {
-            window.matchMedia("(max-width: 424px)").removeEventListener('change', e => setMatches(e.matches));
+            window.matchMedia("(max-width: 524px)").removeEventListener('change', e => setMatches(e.matches));
         };
     }, []);
 
@@ -47,7 +47,7 @@ function SearchBar() {
     };
 
     return (
-        <div id="searchBarDiv" className="border border-secondary position-relative d-flex justify-content-evenly" style={{width : "30%"}}>
+        <div id="searchBarDiv" className="border border-secondary position-relative d-flex justify-content-evenly">
             {matches && (
                 <>
                     <button 
@@ -65,17 +65,17 @@ function SearchBar() {
                         type="text" 
                         name="searchBar" 
                         id="contentsearchBar" 
-                        placeholder="Search Movies, Actors or Genre"
+                        placeholder="Search Movies"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                     />
-                    <button 
+                    {/* <button 
                         type="button" 
                         id="contentsearchButton"
                         onClick={handleSearch}
                     >
                         <IoMdSearch color={'#000000'} />
-                    </button>
+                    </button> */}
                 </div>
             )}
             {(!matches || ((!matches && menusearchbuttonclicked))) && (
