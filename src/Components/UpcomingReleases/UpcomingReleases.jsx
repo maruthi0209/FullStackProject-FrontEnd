@@ -12,7 +12,7 @@ export default function UpcomingReleases() {
     useEffect(() => {
         async function getUpcomingReleases() {
             try {
-                const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/movies/upcoming")
+                const response = await fetch("https://fullstackproject-backend-1.onrender.com/movies/upcoming")
                 if (!response.ok) {
                     throw new Error("Some error occured" + response.status )
                 }

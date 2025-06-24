@@ -7,7 +7,7 @@ export default function MovieGenre({genreId}) {
     useEffect(() => {
         async function getGenreDetails(genreId) {
             try {
-                const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/genres/id/" + genreId)
+                const response = await fetch("https://fullstackproject-backend-1.onrender.com/genres/id/" + genreId)
                 if(!response.ok) {
                     throw new Error("Error occured" + response.json())
                 }

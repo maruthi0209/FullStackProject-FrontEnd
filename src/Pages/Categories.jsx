@@ -15,7 +15,7 @@ export default function Categories() {
     useEffect(() => {
         async function getGenres() {
             try {
-                const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/genres/allGenres");
+                const response = await fetch("https://fullstackproject-backend-1.onrender.com/genres/allGenres");
                 if(!response.ok) {
                     throw new Error("Error while fetching " + response.json)
                 }

@@ -29,7 +29,7 @@ export default function MovieBarChart({id}) {
     useEffect(() => {
         async function getChartData(id) {
             try {
-                const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/reviews/bargraphdata/" + id)
+                const response = await fetch("https://fullstackproject-backend-1.onrender.com/reviews/bargraphdata/" + id)
                 if(!response.ok) {
                     throw new Error("Error occured " + response.json())
                 }

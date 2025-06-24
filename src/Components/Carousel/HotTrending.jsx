@@ -9,7 +9,7 @@ export default function HotTrending() {
     useEffect(() => {
         async function carouselData() {
             try {
-                const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/hottrending/allHotTrending")
+                const response = await fetch("https://fullstackproject-backend-1.onrender.com/hottrending/allHotTrending")
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                   }

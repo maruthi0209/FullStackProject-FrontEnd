@@ -13,7 +13,7 @@ export default function MovieReviewCard({element, index, onUpdate}) {
         // e.preventDefault()
         const loadingToast = toast.loading("Deleting your review...");
         try{
-            const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/reviews/delete/" + element._id, {
+            const response = await fetch("https://fullstackproject-backend-1.onrender.com/reviews/delete/" + element._id, {
                         method : "DELETE"
                     })
             if(!response.ok) {

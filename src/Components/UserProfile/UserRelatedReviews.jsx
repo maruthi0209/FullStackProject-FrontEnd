@@ -5,7 +5,7 @@ export default function UserRelatedReviews({userId}) {
 
     async function getUserRelatedReviews(userId) {
             try {
-                const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/reviews/userReviews/" + userId
+                const response = await fetch("https://fullstackproject-backend-1.onrender.com/reviews/userReviews/" + userId
                 )
                 if(!response.ok) {
                     throw new Error("Error occured " + response.json())

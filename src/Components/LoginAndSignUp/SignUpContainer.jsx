@@ -21,7 +21,7 @@ function SignUpContainer() {
     useEffect(() => {
         async function getAllUsers() {
             try {
-                let response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/users/allUsers")
+                let response = await fetch("https://fullstackproject-backend-1.onrender.com/users/allUsers")
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                   }

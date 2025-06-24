@@ -56,7 +56,7 @@ export default function MovieReviewForm() {
     async function submitReviewData(newReview) {
         const loadingToast = toast.loading("Submitting your review...");
         try {
-            const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/reviews/create", {
+            const response = await fetch("https://fullstackproject-backend-1.onrender.com/reviews/create", {
                     method : "POST", 
                     headers: {
                         'Content-Type': 'application/json',

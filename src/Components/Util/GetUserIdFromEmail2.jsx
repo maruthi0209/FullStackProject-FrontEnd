@@ -10,7 +10,7 @@ function getToken(token) {
     const decoded = jwtDecode(token);
     const email = decoded.email || decoded.userEmail;
 
-    return fetch(`https://fullstackproject-backend-z5rx.onrender.com/users/getidfromemail/${email}`)
+    return fetch(`https://fullstackproject-backend-1.onrender.com/users/getidfromemail/${email}`)
       .then(response => {
         if (!response.ok) {
           throw new Error("Error occurred: " + response.status);

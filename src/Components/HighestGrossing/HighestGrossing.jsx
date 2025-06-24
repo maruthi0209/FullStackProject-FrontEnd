@@ -9,7 +9,7 @@ export default function HighestGrossing() {
     useEffect(() => {
         async function getHighestGrossing() {
             try {
-                const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/movies/highestgrossing")
+                const response = await fetch("https://fullstackproject-backend-1.onrender.com/movies/highestgrossing")
                 if (!response.ok) {
                     throw new Error("Error occured " + response.status + response.statusText)
                 }

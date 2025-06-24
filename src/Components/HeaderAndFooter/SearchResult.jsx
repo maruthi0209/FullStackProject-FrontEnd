@@ -18,7 +18,7 @@ export default function SearchResults() {
             try {
                 setIsLoading(true);
                 setError(null);
-                fetch(`https://fullstackproject-backend-z5rx.onrender.com/movies/name?name=${query}`)
+                fetch(`https://fullstackproject-backend-1.onrender.com/movies/name?name=${query}`)
                 .then(res => res.json())
                 .then(data => setResults(data));
 

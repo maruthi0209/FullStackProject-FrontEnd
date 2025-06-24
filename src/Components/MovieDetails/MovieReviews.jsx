@@ -23,7 +23,7 @@ export default function MovieReviews({movieId}) {
     useEffect(() => {
         async function getMovieReviews(movieId) {
             try {
-                const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/reviews/movieReview/" + movieId)
+                const response = await fetch("https://fullstackproject-backend-1.onrender.com/reviews/movieReview/" + movieId)
                 if(!response.ok) {
                     throw new Error("An error occured " + response.json())
                 }

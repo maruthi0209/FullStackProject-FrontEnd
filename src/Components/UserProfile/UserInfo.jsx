@@ -26,7 +26,7 @@ export default function UserInfo({userId}) {
 
     async function getUserDetails(userId) {
         try {
-            const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/users/id/" + userId) 
+            const response = await fetch("https://fullstackproject-backend-1.onrender.com/users/id/" + userId) 
             if(!response.ok) {
                 throw new Error("Error occured " + response.json())
             }
@@ -39,7 +39,7 @@ export default function UserInfo({userId}) {
 
     async function getAllUsers() {
             try {
-                let response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/users/allUsers")
+                let response = await fetch("https://fullstackproject-backend-1.onrender.com/users/allUsers")
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                   }

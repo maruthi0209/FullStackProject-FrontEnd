@@ -8,7 +8,7 @@ export default function FanFavorites() {
     useEffect(() => {
         async function getFanFavorites() {
             try {
-                const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/movies/fanfavorites")
+                const response = await fetch("https://fullstackproject-backend-1.onrender.com/movies/fanfavorites")
                 if (!response.ok) {
                     throw new Error("Some error occured " + response.status + response.statusText)
                 }

@@ -74,7 +74,7 @@ export default function LoginContainer() {
         const loginEmail = formData.get("loginEmail")
         const loginPassword = formData.get("loginPassword")
         try {
-            const res = await fetch(`https://fullstackproject-backend-z5rx.onrender.com/users/emailLogin`, {
+            const res = await fetch(`https://fullstackproject-backend-1.onrender.com/users/emailLogin`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ "userEmail" : loginEmail, "userPassword" :loginPassword }),

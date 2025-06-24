@@ -8,7 +8,7 @@ export default function TopRated() {
     useEffect(() => {
         async function getTopRated() {
             try {
-                const response = await fetch("https://fullstackproject-backend-z5rx.onrender.com/movies/toprated")
+                const response = await fetch("https://fullstackproject-backend-1.onrender.com/movies/toprated")
                 if (!response.ok) {
                     throw new Error("Some error occured" + response.status )
                 }

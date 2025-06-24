@@ -13,7 +13,7 @@ export default function ForgotPassword() {
   const [newPassword, setNewPassword] = useState('');
 
   const sendOtp = async () => {
-    await fetch('https://fullstackproject-backend-z5rx.onrender.com/users/auth/send-otp', {
+    await fetch('https://fullstackproject-backend-1.onrender.com/users/auth/send-otp', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email }),
@@ -22,7 +22,7 @@ export default function ForgotPassword() {
   };
 
   const verifyOtp = async () => {
-    const res = await fetch('https://fullstackproject-backend-z5rx.onrender.com/users/auth/verify-otp', {
+    const res = await fetch('https://fullstackproject-backend-1.onrender.com/users/auth/verify-otp', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, otp }),
@@ -33,7 +33,7 @@ export default function ForgotPassword() {
   };
 
   const resetPassword = async () => {
-    await fetch('https://fullstackproject-backend-z5rx.onrender.com/users/auth/reset-password', {
+    await fetch('https://fullstackproject-backend-1.onrender.com/users/auth/reset-password', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ token, newPassword }),
